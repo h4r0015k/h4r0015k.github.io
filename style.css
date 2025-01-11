@@ -1,0 +1,355 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Roboto";
+}
+
+.basicInfoCard .title {
+  font-size: 2.2em;
+  margin-top: 30px;
+  margin-left: 1px;
+  color: #004d40;
+  font-family: "Poppins";
+}
+
+.basicInfoCard .title::after {
+  content: "Software Engineer";
+  display: block;
+  font-size: 0.4em;
+  color: #6e7b75;
+  font-family: "Lato";
+}
+
+.basicInfoCard,
+.skills {
+  background: linear-gradient(135deg, #b2beb5, #d1d8d5);
+  border-radius: 12px;
+  display: flex;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  padding: 30px 30px;
+  gap: 10px;
+}
+
+.profilePic {
+  height: 160px;
+  display: block;
+  border-radius: 10px;
+  border-color: #d3d3d3;
+  filter: grayscale(1);
+  margin: 0 auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.desc span {
+  display: inline-flex;
+  font-size: 1.4em;
+  text-align: left;
+  color: #444444;
+  line-height: 1.6;
+  font-family: "Work Sans";
+  margin-left: 20px;
+}
+
+.socials a {
+    text-decoration: none;
+}
+
+.socials {
+  font-size: 1.3em;
+  display: flex;
+  gap: 20px;
+  flex-direction: row-reverse;
+  color: #595959;
+}
+.socials li:nth-child(1) a {
+  color: #595959;
+}
+.socials li:nth-child(2) a {
+  color: #548e8e;
+}
+.socials li:nth-child(3) a {
+  color: #3b8060;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #000;
+}
+
+.personalDetails {
+  flex-shrink: 0;
+}
+
+.skills {
+  display: revert;
+  box-shadow: revert;
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.skills h2 {
+  font-size: 1.6em;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-family: "Poppins";
+  color: #1c4b43;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skillsList li {
+  width: 100%;
+}
+
+.skill-title {
+  font-size: 16px;
+  color: #34495e;
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar .progress {
+  height: 100%;
+  border-radius: 10px;
+  background-color: #6ca397;
+  transition: width 0.4s ease;
+  animation: progressBarAnimation 2s;
+}
+
+.skillsList li:nth-child(1) .progress {
+  width: 90%;
+}
+
+.skillsList li:nth-child(2) .progress {
+  width: 90%;
+}
+
+.skillsList li:nth-child(3) .progress {
+  width: 80%;
+}
+
+.skillsList li:nth-child(4) .progress {
+  width: 80%;
+}
+
+.skillsList li:nth-child(5) .progress {
+  width: 95%;
+}
+
+.honorable-mention {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.honorable-mention h3 {
+  font-family: "Poppins";
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  text-decoration: underline;
+}
+
+.honorable-mention ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.honorable-mention li {
+  font-size: 0.9em;
+  color: #4a5754;
+  margin-bottom: 6px;
+  position: relative;
+  line-height: 0.3;
+}
+
+@media all and (max-width: 600px) {
+  .wrapper {
+    padding: 5px;
+  }
+  .basicInfoCard .title {
+    font-size: 2.5em;
+    margin-top: 15px;
+    text-align: center;
+  }
+  .basicInfoCard,
+  .skills {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 8px;
+  }
+  .profilePic {
+    height: 260px;
+  }
+
+  .desc span {
+    margin-top: 20px;
+    margin-left: -10px;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  .socials {
+    margin: 0 auto;
+    font-size: 1em;
+  }
+}
+
+@keyframes progressBarAnimation {
+    from {
+      width: 0;
+    }
+  }
