@@ -1,137 +1,282 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
       body {
-        background-color: #000;
-        color: #fff;
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
         font-family: "Roboto";
       }
-      .wrapper {
-        max-width: 1244px;
-        margin: 0 auto;
+
+      .basicInfoCard .title {
+        font-size: 2.2em;
+        margin-top: 30px;
+        margin-left: 1px;
+        color: #004d40;
+        font-family: "Poppins";
       }
-      h1 {
-        font-size: 3em;
-      }
-      h1 span {
+
+      .basicInfoCard .title::after {
+        content: "Software Engineer";
         display: block;
-        font-size: 0.3em;
+        font-size: 0.4em;
+        color: #6e7b75;
+        font-family: "Lato";
       }
-      .head {
+
+      .basicInfoCard {
+        background: linear-gradient(135deg, #b2beb5, #d1d8d5);
+        border-radius: 12px;
         display: flex;
-        justify-content: space-between;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+        padding: 30px 30px;
+        gap: 10px;
       }
-      .hire {
-        display: inline-block;
-        align-self: center;
-        font-size: 2em;
-        text-decoration: underline;
-        color: #fff;
+
+      .profilePic {
+        height: 160px;
+        display: block;
+        border-radius: 10px;
+        border-color: #d3d3d3;
+        filter: grayscale(1);
+        margin: 0 auto;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       }
-      .info {
-        font-size: 1.6em;
-      }
-      .info ul {
-        list-style-type: disclosure-closed;
+
+      .desc {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        max-height: 200px;
-      }
-      .info ol {
-        list-style-type: disclosure-open;
+        justify-content: space-between;
       }
 
-      .info a {
-        color: #fff;
-        text-decoration: none;
+      .desc span {
+        display: inline-flex;
+        font-size: 1.4em;
+        text-align: left;
+        color: #444444;
+        line-height: 1.6;
+        font-family: "Work Sans";
+        margin-left: 20px;
       }
 
-      .info ul li {
-        max-width: 30%;
+      .socials {
+        font-size: 1.3em;
+        display: flex;
+        gap: 20px;
+        flex-direction: row-reverse;
+        color: #595959;
+      }
+      .socials li:nth-child(1) {
+        color: #595959;
+      }
+      .socials li:nth-child(2) {
+        color: #548E8E;
+      }
+      .socials li:nth-child(3) {
+        color: #3B8060;
       }
 
-      .info ol > li {
-        margin-bottom: 20px;
+      .socials a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #000;
+      }
+      
+      .personalDetails {
+        flex-shrink: 0;
       }
 
-      .info ol ul {
-        margin-top: 10px;
-      }
+      @media all and (max-width: 600px) {
+        .wrapper {
+          padding: 5px;
+        }
+        .basicInfoCard .title {
+          font-size: 2.5em;
+          margin-top: 15px;
+          text-align: center;
+        }
+        .basicInfoCard {
+          flex-direction: column;
+          align-items: center;
+          margin: 10px 8px;
+        }
+        .profilePic {
+          height: 260px;
+        }
 
-      ol .about li {
-        max-width: 100%;
-      }
-
-      @media (min-width: 480px) {
-        .head {
-          padding: 0 10px;
+        .desc span {
+          margin-top: 20px;
+          margin-left: -10px;
+          text-align: center;
+          font-size: 1.2em;
+          margin-bottom: 20px;
+        }
+        .socials {
+          margin: 0 auto;
+          font-size: 1em;
         }
       }
     </style>
   </head>
   <body>
-    <section class="wrapper">
-      <section class="head">
-        <h1>Nikhil Sahani <span>Senior Software Engineer</span></h1>
-        <a class="hire" href="mailto:hire@nikhilsahani.com?subject=job offer">
-          <span>Hire me</span>
-        </a>
+    <div class="wrapper">
+      <section class="basicInfoCard">
+        <div class="personalDetails">
+          <img class="profilePic" src="./profile.png" alt="profile picture" />
+          <h1 class="title">Nikhil Sahani</h1>
+        </div>
+        <div class="desc">
+          <span>
+            I’m a software engineer with 5+ years of experience specializing in
+            backend development, modern web frameworks, and scalable systems. I
+            love solving challenging problems and building impactful,
+            high-performance software.
+          </span>
+          <ul class="socials">
+            <li><a>Hire</a></li>
+            <li><a>Linkedin</a></li>
+            <li><a>Github</a></li>
+          </ul>
+        </div>
       </section>
-      <section class="info">
-        <ol>
-          <li>
-            About me
-            <ul class="about">
-              <li>
-                I am a dedicated and results-driven software engineer with over
-                5 years of professional experience in designing, developing, and
-                optimizing innovative software solutions. With a strong
-                foundation in Javascript ecosystem. My passion for
-                problem-solving and continuous learning drives me to stay at the
-                forefront of emerging technologies, enabling me to deliver
-                high-quality, scalable, and efficient solutions for diverse
-                projects.
-              </li>
-            </ul>
-          </li>
-          <li>
-            Skills
-            <ul>
-              <li>HTML/CSS/JS 😎</li>
-              <li>ExpressJs 😎</li>
-              <li>NodeJs 😎</li>
-              <li>NextJs 😎</li>
-              <li>ReactJs 😎</li>
-              <li>ElasticSearch 😎</li>
-              <li>Solr 😎</li>
-              <li>MongoDB 😀</li>
-              <li>TypeScript 😀</li>
-              <li>AWS 😀</li>
-              <li>Rust 😀</li>
-              <li>C 😅</li>
-              <li>Python 😅</li>
-              <li>Java 😅</li>
-            </ul>
-          </li>
-          <li>
-            Socials
-            <ul>
-              <li>
-                <a href="https://in.linkedin.com/in/nikhil-sahani">LinkedIn</a>
-              </li>
-              <li><a href="https://github.com/h4r0015k">Github</a></li>
-            </ul>
-          </li>
-        </ol>
-      </section>
-    </section>
+    </div>
   </body>
 </html>
