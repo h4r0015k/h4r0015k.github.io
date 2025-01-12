@@ -148,6 +148,7 @@ table {
   font-size: 0.4em;
   color: #6e7b75;
   font-family: "Lato";
+  animation: subTitleAnimation 10s infinite;
 }
 
 .basicInfoCard,
@@ -188,7 +189,7 @@ table {
 }
 
 .socials a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .socials {
@@ -198,6 +199,10 @@ table {
   flex-direction: row-reverse;
   color: #595959;
 }
+.socials li:nth-child(1) {
+  animation: hireBounce 2s infinite;
+}
+
 .socials li:nth-child(1) a {
   color: #595959;
 }
@@ -349,7 +354,31 @@ table {
 }
 
 @keyframes progressBarAnimation {
-    from {
-      width: 0;
-    }
+  from {
+    width: 0;
   }
+}
+
+@keyframes subTitleAnimation {
+  35% {
+    content: "Tech Wizard";
+  }
+  55% {
+    content: "Digital Architect";
+  }
+  75% {
+    content: "Program Whisperer";
+  }
+  95% {
+    content: "Script Ninja";
+  }
+}
+
+@keyframes hireBounce {
+  35% {
+    transform: scale(1.1);
+  }
+  95% {
+    transform: scale(1);
+  }
+}
