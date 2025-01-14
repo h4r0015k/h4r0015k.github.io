@@ -376,7 +376,7 @@ table {
 
 @keyframes hireBounce {
   35% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   95% {
     transform: scale(1);
