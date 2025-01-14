@@ -223,104 +223,6 @@ table {
   flex-shrink: 0;
 }
 
-.skills {
-  display: revert;
-  box-shadow: revert;
-  margin-top: 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.skills h2 {
-  font-size: 1.6em;
-  text-transform: capitalize;
-  margin-bottom: 20px;
-  font-family: "Poppins";
-  color: #1c4b43;
-}
-
-.skillsList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.skillsList li {
-  width: 100%;
-}
-
-.skill-title {
-  font-size: 16px;
-  color: #34495e;
-  margin-bottom: 6px;
-}
-
-.progress-bar {
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  height: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-bar .progress {
-  height: 100%;
-  border-radius: 10px;
-  background-color: #6ca397;
-  transition: width 0.4s ease;
-  animation: progressBarAnimation 2s;
-}
-
-.skillsList li:nth-child(1) .progress {
-  width: 90%;
-}
-
-.skillsList li:nth-child(2) .progress {
-  width: 90%;
-}
-
-.skillsList li:nth-child(3) .progress {
-  width: 80%;
-}
-
-.skillsList li:nth-child(4) .progress {
-  width: 80%;
-}
-
-.skillsList li:nth-child(5) .progress {
-  width: 95%;
-}
-
-.honorable-mention {
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.honorable-mention h3 {
-  font-family: "Poppins";
-  font-size: 1.1em;
-  font-weight: 500;
-  color: #2c3e50;
-  margin-bottom: 18px;
-  text-decoration: underline;
-}
-
-.honorable-mention ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.honorable-mention li {
-  font-size: 0.9em;
-  color: #4a5754;
-  margin-bottom: 6px;
-  position: relative;
-  line-height: 0.3;
-}
-
 @media all and (max-width: 600px) {
   .wrapper {
     padding: 5px;
@@ -347,9 +249,9 @@ table {
     font-size: 1.2em;
     margin-bottom: 20px;
   }
+
   .socials {
     margin: 0 auto;
-    font-size: 1em;
   }
 }
 
