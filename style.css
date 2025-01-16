@@ -199,9 +199,6 @@ table {
   flex-direction: row-reverse;
   color: #595959;
 }
-.socials li:nth-child(1) {
-  animation: hireBounce 2s infinite;
-}
 
 .socials li:nth-child(1) a {
   color: #595959;
