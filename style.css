@@ -190,12 +190,13 @@ table {
 
 .socials a {
   text-decoration: none;
+  display: block;
 }
 
 .socials {
   font-size: 1.3em;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-direction: row-reverse;
   color: #595959;
 }
@@ -206,14 +207,25 @@ table {
 .socials li:nth-child(2) a {
   color: #548e8e;
 }
+
 .socials li:nth-child(3) a {
   color: #3b8060;
 }
 
+.socials li {
+  transition: 0.3s;
+  padding: 5px;
+  background: linear-gradient(to bottom, #e5e5e5, #e5e5e5) bottom/100% 0%
+    no-repeat;
+}
+
+.socials li:hover {
+  background-size: 100% 100%;
+  transition: 0.3s;
+}
+
 .socials a:hover {
-  text-decoration: underline;
   cursor: pointer;
-  color: #000;
 }
 
 .personalDetails {
