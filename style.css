@@ -1,0 +1,204 @@
+/* --- 1. Global Styles and Theme Variables --- */
+:root {
+    /* Default is Dark Theme */
+    --bg-color: #1a1a1a;
+    --card-bg: #2a2a2a;
+    --text-color: #f0f0f0;
+    --secondary-text: #aaa;
+    --accent-color: #00bcd4; /* A clean, tech blue/cyan */
+    --border-radius: 8px;
+    --spacing: 20px;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+    --bg-color: #f8f8f8;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --secondary-text: #555;
+    --accent-color: #005EA2; /* A standard bright blue */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s; /* Smooth theme transition */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-text); 
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 { font-size: 2.5em; margin-bottom: 0.2em; }
+h2 { font-size: 1.1em; font-weight: 400; color: var(--secondary-text); margin-bottom: 2em; }
+h3 { font-size: 1.4em; margin-bottom: 1em; color: var(--text-color); }
+h3 i { margin-right: 10px; color: var(--accent-color); }
+
+
+/* --- 2. Hero/Header Section & Theme Toggle --- */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative; /* For theme-toggle positioning */
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--secondary-text);
+    transition: color 0.3s;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    font-size: 1.5em;
+    margin: 0 12px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.social-links a:hover {
+    border-color: var(--accent-color);
+}
+
+.download-cv {
+    font-size: 0.9em;
+    margin-left: 20px;
+}
+
+/* Disabled state for download CV link */
+.download-cv.disabled {
+    pointer-events: none; /* Makes the link unclickable */
+    opacity: 0.5; /* Visually indicates it's disabled */
+    cursor: not-allowed; /* Changes cursor to indicate it's not clickable */
+}
+
+/* --- 3. Main Content & Cards --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: var(--spacing);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Specific styling for the new about section */
+.about-section {
+    margin: var(--spacing) auto;
+}
+.about-section p strong {
+    color: var(--accent-color);
+}
+
+
+/* --- 4. Responsive Grid Layout (Desktop First) --- */
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Default desktop layout: Left column wider */
+    gap: var(--spacing);
+    padding-bottom: 60px;
+}
+
+/* Adjustments for specific cards in the grid */
+.projects-card {
+    grid-column: 1 / span 2; /* Projects spans both columns on larger screens */
+}
+.experience-card, .skills-card {
+    grid-column: auto;
+}
+
+
+
+/* --- 6. Dynamic Timeline Card Styling (The Dev Log) --- */
+.log-item-paragraph {
+    margin-bottom: 0.5em;
+    color: var(--text-color);
+}
+
+.log-item-paragraph strong {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.empty-log-message {
+    text-align: center;
+    color: var(--secondary-text);
+}
+
+
+/* --- 7. Mobile View (Stacking) --- */
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+    .projects-card {
+        grid-column: auto;
+    }
+}
+
+/* --- 8. Accessibility Enhancements --- */
+
+
+a:focus, 
+button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* --- 9. Tagline Animation --- */
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
