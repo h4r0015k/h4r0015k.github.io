@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Fetch dev log data from logs.json
-    fetch('https://raw.githubusercontent.com/h4r0015k/h4r0015k.github.io/main/logs.json')
+    fetch('https://raw.githubusercontent.com/h4r0015k/h4r0015k.github.io/logs/logs.json')
         .then(response => response.json())
         .then(data => {
             renderTimeline(data);
