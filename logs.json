@@ -1,5 +1,10 @@
 [
   {
+    "date": "28/09/2025",
+    "type": "Learning",
+    "title": "Exploring RAG -> Vector and Embeddings."
+  },
+  {
     "date": "10/09/2025",
     "type": "Learning",
     "title": "Working through Practical Deep Learning for Coders to understand the full pipeline of building and training deep learning models."
