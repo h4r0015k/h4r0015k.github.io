@@ -56,7 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
                     dateString = ` <span class="log-date">(${date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })})</span>`;
                 }
-                logParagraph.innerHTML = `<strong>${item.type}</strong>${dateString}: ${item.title}`;
+
+                const titleContent = item.link
+                    ? `<a href="${item.link}" target="_blank">${item.title}</a>`
+                    : item.title;
+
+                logParagraph.innerHTML = `<strong>${item.type}</strong>${dateString}: ${titleContent}`;
                 timelineContainer.appendChild(logParagraph);
             });
         }
