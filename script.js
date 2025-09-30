@@ -50,7 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
             devLogData.slice(0, 5).forEach(item => { // Limit to top 5 items
                 const logParagraph = document.createElement('p');
                 logParagraph.className = 'log-item-paragraph'; // New class for styling
-                logParagraph.innerHTML = `<strong>${item.type}:</strong> ${item.title}`;
+                let dateString = '';
+                if (item.date) {
+                    const dateParts = item.date.split('/');
+                    const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+                    dateString = ` <span class="log-date">(${date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })})</span>`;
+                }
+                logParagraph.innerHTML = `<strong>${item.type}</strong>${dateString}: ${item.title}`;
                 timelineContainer.appendChild(logParagraph);
             });
         }

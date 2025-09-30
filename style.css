@@ -202,3 +202,9 @@ button:focus {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+.log-date {
+    color: var(--secondary-text);
+    font-size: 0.9em;
+    margin-left: 5px;
+}
