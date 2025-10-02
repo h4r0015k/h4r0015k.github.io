@@ -1,5 +1,11 @@
 [
   {
+    "date": "02/10/2025",
+    "type": "Code",
+    "title": "Built a simple RAG based chatbot.",
+    "link": "https://github.com/h4r0015k/yacb"
+  },
+  {
     "date": "28/09/2025",
     "type": "Learning",
     "title": "Exploring RAG -> Vector and Embeddings."
