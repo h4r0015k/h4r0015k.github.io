@@ -1,5 +1,11 @@
 [
   {
+    "date": "06/10/2025",
+    "type": "Certification",
+    "title": "The AI Engineer Path: Scrimba",
+    "link": "https://scrimba.com/the-ai-engineer-path-c02v;cert2uNje7fsA5yqfJPC9FZDNbMyHirLDDrpRtE"
+  },
+  {
     "date": "02/10/2025",
     "type": "Code",
     "title": "Built a simple RAG based chatbot.",
