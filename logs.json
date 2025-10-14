@@ -1,5 +1,10 @@
 [
   {
+    "date": "13/10/2025",
+    "type": "Exploring",
+    "title": "Kubernetes"
+  },
+  {
     "date": "06/10/2025",
     "type": "Certification",
     "title": "The AI Engineer Path: Scrimba",
