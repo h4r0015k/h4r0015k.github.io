@@ -1,5 +1,11 @@
 [
   {
+    "date": "01/11/2025",
+    "type": "Certification",
+    "title": "AWS Certified AI Practitioner",
+    "link": "https://www.credly.com/badges/177dd801-9622-4793-b179-58d1f5c72d8d/public_url"
+  },
+  {
     "date": "13/10/2025",
     "type": "Exploring",
     "title": "Kubernetes"
