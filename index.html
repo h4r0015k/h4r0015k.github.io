@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Sahani // Senior Product Engineer</title>
+  
+  <meta name="description" content="Senior Product Engineer. Building backend services, web applications, and pragmatic AI workflows. Focused on simple architectures, low operational drag, and reliable software.">
+  <meta name="keywords" content="Nikhil Sahani, h4r0015k, Senior Product Engineer, Full Stack, Software Engineer, Applied AI, Mountain">
+  <meta name="author" content="Nikhil Sahani">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nikhil Sahani // Senior Product Engineer">
+  <meta property="og:description" content="Senior Product Engineer. Building backend services, web applications, and pragmatic AI workflows. Focused on simple architectures, low operational drag, and reliable software.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nikhilsahani.com">
+
+  <!-- Favicon & Mobile Chrome -->
+  <meta name="theme-color" content="#070a08">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="green">
+
+  <!-- CRT Scanlines (Off by default) & Vignette -->
+  <div class="crt-overlay"></div>
+  <div class="vignette"></div>
+
+  <!-- FULL-PAGE SNAKE CANVAS -->
+  <canvas id="snake-canvas"></canvas>
+
+  <!-- TOP TELEMETRY HUD -->
+  <nav class="hud-telemetry" aria-label="Telemetry HUD">
+    <div class="container hud-telemetry-inner">
+      <div class="hud-ticker">
+        <span class="hud-item"><span class="dot"></span> <strong>SYS:</strong> ONLINE</span>
+        <span class="hud-item"><strong>EXP:</strong> 7+ YRS</span>
+        <span class="hud-item"><strong>LOC:</strong> THANE / MUMBAI, IN</span>
+      </div>
+
+      <div class="hud-controls">
+        <button id="btn-audio" class="hud-btn" onclick="toggleAudio()" title="Toggle 8-bit Audio">AUDIO: [OFF]</button>
+        <button id="btn-crt" class="hud-btn" onclick="toggleCRT()" title="Toggle CRT Filter">CRT: [OFF]</button>
+        <button id="btn-theme" class="hud-btn" onclick="cycleTheme()" title="Switch Palette">PALETTE: [GREEN]</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- HERO SECTION / PROFILE CARD -->
+    <section class="hero-section" id="profile">
+      <div class="character-card">
+        <div class="hero-content">
+          <div class="card-header-meta">
+            <div class="hero-role-badge">
+              <span>// SENIOR PRODUCT ENGINEER</span>
+            </div>
+          </div>
+
+          <h1 class="hero-name">
+            NIKHIL SAHANI
+            <span class="hero-handle">[@h4r0015k]</span>
+          </h1>
+
+          <div class="hero-title">
+            Systems • Web Products • Applied AI
+          </div>
+
+          <p class="hero-bio">
+            I build backend services, web applications, and pragmatic AI workflows. 
+            Focused on simple architectures, low operational drag, and reliable software.
+          </p>
+
+          <!-- Actions -->
+          <div class="hero-actions">
+            <a href="#comms" class="btn-game primary" onclick="sound.playClick()">
+              [ CONTACT ME ]
+            </a>
+            <a href="mailto:hire@nikhilsahani.com?subject=CV%20Request%20-%20Nikhil%20Sahani" class="btn-game" onclick="sound.playClick()">
+              [ REQUEST CV ]
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILDING SECTION -->
+    <section id="building" class="building-section">
+      <div class="building-panel">
+        <div class="comms-header">// PROJECTS</div>
+        <div class="building-grid">
+
+          <a href="https://nikhilsahani.com/Mountain/" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span>ACTIVE</span>
+            </div>
+            <h3 class="project-name">Mountain</h3>
+            <p class="project-desc">
+              Local-first, zero-knowledge password manager. AES-256-GCM encryption, 
+              BIP-39 paper key — no servers, no accounts, no tracking. Everything 
+              stays on your device.
+            </p>
+            <div class="project-tags">
+              <span class="tag">OPEN SOURCE</span>
+              <span class="tag">PRIVACY</span>
+              <span class="tag">LOCAL-FIRST</span>
+            </div>
+            <span class="project-link">VIEW PROJECT ↗</span>
+          </a>
+
+        </div>
+
+        <!-- ARCHIVE -->
+        <div class="archive-section-header">// ARCHIVE</div>
+        <div class="archive-grid">
+
+          <a href="https://github.com/h4r0015k/IRCBot-C" target="_blank" rel="noopener noreferrer" class="archive-card">
+            <div class="archive-card-top">
+              <span class="archive-name">IRCBot-C</span>
+              <span class="lang-tag">C • 2018</span>
+            </div>
+            <p class="archive-desc">
+              Lightweight IRC client built with raw POSIX/BSD sockets. Handles TCP streaming, channel handshakes, and RFC 1459 PING/PONG protocol.
+            </p>
+            <span class="archive-link">GITHUB ↗</span>
+          </a>
+
+          <a href="https://github.com/h4r0015k/WhatBot" target="_blank" rel="noopener noreferrer" class="archive-card">
+            <div class="archive-card-top">
+              <span class="archive-name">WhatBot</span>
+              <span class="lang-tag">PYTHON • 2015</span>
+            </div>
+            <p class="archive-desc">
+              Early WhatsApp cryptocurrency tipping and wallet bot built with MySQL and Block.io APIs.
+            </p>
+            <span class="archive-link">GITHUB ↗</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMS & DIRECT CONTACT SECTION -->
+    <section id="comms" class="comms-section">
+      <div class="comms-panel">
+        <div class="comms-header">// COMMS</div>
+        <div class="comms-grid">
+          <div class="comms-row">
+            <span class="ch-icon">✉</span>
+            <span class="ch-key">EMAIL</span>
+            <a href="mailto:hire@nikhilsahani.com" class="ch-val" onclick="sound.playClick()">hire@nikhilsahani.com</a>
+            <button class="copy-btn" onclick="copyText('hire@nikhilsahani.com', 'EMAIL')">COPY</button>
+          </div>
+
+          <div class="comms-row">
+            <span class="ch-icon">☎</span>
+            <span class="ch-key">PHONE</span>
+            <a href="tel:+918104408291" class="ch-val" onclick="sound.playClick()">+91 8104408291</a>
+            <button class="copy-btn" onclick="copyText('+918104408291', 'PHONE')">COPY</button>
+          </div>
+
+          <div class="comms-row">
+            <span class="ch-icon">⌥</span>
+            <span class="ch-key">GITHUB</span>
+            <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="ch-val">github.com/h4r0015k <span class="ext-arrow">↗</span></a>
+          </div>
+
+          <div class="comms-row">
+            <span class="ch-icon">◉</span>
+            <span class="ch-key">LINKEDIN</span>
+            <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="ch-val">in/nikhil-sahani <span class="ext-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-credits">
+      <div>
+        <span>NIKHIL SAHANI // SENIOR PRODUCT ENGINEER</span>
+      </div>
+      <div>
+        <span>HOSTED ON GITHUB PAGES</span>
+      </div>
+      <div>
+        <a href="#profile" class="hud-btn" onclick="sound.playClick()">▲ TOP</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Node -->
+  <div id="hud-toast" class="hud-toast"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
