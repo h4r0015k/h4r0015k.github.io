@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Machine-readable summary for AI agents and LLMs
+# Spec: https://llmstxt.org
+# LLM endpoint: https://nikhilsahani.com/llms.txt

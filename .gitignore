@@ -1,3 +1,6 @@
 resume.pdf
 *.pdf
 avatar.png
+private-key*
+*.key
+*.sec.asc

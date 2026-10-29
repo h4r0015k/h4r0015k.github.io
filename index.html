@@ -3,202 +3,1160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikhil Sahani // Senior Product Engineer</title>
+  <title>Nikhil Sahani // h4r0015k</title>
   
-  <meta name="description" content="Senior Product Engineer. Building backend services, web applications, and pragmatic AI workflows. Focused on simple architectures, low operational drag, and reliable software.">
-  <meta name="keywords" content="Nikhil Sahani, h4r0015k, Senior Product Engineer, Full Stack, Software Engineer, Applied AI, Mountain">
+  <meta name="description" content="Nikhil Sahani (h4r0015k) // Senior Product Engineer focused on distributed backends, concurrency, and applied AI.">
   <meta name="author" content="Nikhil Sahani">
   
-  <!-- Open Graph -->
   <meta property="og:title" content="Nikhil Sahani // Senior Product Engineer">
-  <meta property="og:description" content="Senior Product Engineer. Building backend services, web applications, and pragmatic AI workflows. Focused on simple architectures, low operational drag, and reliable software.">
+  <meta property="og:description" content="Senior Product Engineer focused on distributed backends, concurrency, and applied AI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nikhilsahani.com">
 
-  <!-- Favicon & Mobile Chrome -->
   <meta name="theme-color" content="#070a08">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-readable summary">
   
-  <!-- Fonts -->
+  <!-- Schema.org Structured Data for LLMs and Search Crawlers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikhil Sahani",
+    "alternateName": "h4r0015k",
+    "jobTitle": "Senior Product Engineer",
+    "url": "https://nikhilsahani.com",
+    "sameAs": [
+      "https://github.com/h4r0015k",
+      "https://www.linkedin.com/in/nikhil-sahani/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Thane / Mumbai",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": [
+      "Distributed Systems",
+      "Backend Infrastructure",
+      "Applied AI",
+      "High-Concurrency Caching",
+      "PostgreSQL",
+      "Redis",
+      "Go",
+      "TypeScript",
+      "ANSI C",
+      "Local-First Software"
+    ]
+  }
+  </script>
+  
+  <!-- Fonts: Press Start 2P for 90s arcade headers + JetBrains Mono for clean readable terminal body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg: #070a08;
+      --bg-panel: #0d120f;
+      --bg-card: #121814;
+      --bg-hover: #18221c;
+
+      --accent: #00ff66;
+      --accent-glow: rgba(0, 255, 102, 0.3);
+      --accent-dim: rgba(0, 255, 102, 0.1);
+      --accent-border: rgba(0, 255, 102, 0.25);
+
+      --text: #e2fbe9;
+      --text-muted: #8fae98;
+      --text-dim: #7da289;
+
+      --cyan: #00f0ff;
+      --amber: #ffaa00;
+
+      --font-pixel: 'Press Start 2P', monospace;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --border-radius: 4px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(0, 255, 102, 0.05) 0%, transparent 60%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px, 32px 32px;
+      color: var(--text);
+      padding: 0 0 80px;
+    }
+
+    /* Subtle CRT Scanlines & Vignette */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%);
+      background-size: 100% 3px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.25;
+    }
+
+    .container {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* TOP TELEMETRY HUD */
+    .hud {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background: rgba(7, 10, 8, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 10px 0;
+      margin-bottom: 40px;
+      font-size: 0.72rem;
+    }
+
+    .hud-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hud-brand {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.15s ease;
+    }
+
+    .hud-brand:hover {
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .hud-ticker {
+      display: flex;
+      gap: 12px;
+      color: var(--text-muted);
+      align-items: center;
+    }
+
+    .hud-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+
+    .hud-link:hover {
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    /* HEADER */
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--accent-border);
+    }
+
+    .role-badge {
+      font-family: var(--font-pixel);
+      font-size: 0.65rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-family: var(--font-pixel);
+      font-size: clamp(1.15rem, 5.5vw, 1.5rem);
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      line-height: 1.35;
+      text-shadow: 0 0 10px var(--accent-glow);
+      word-break: break-word;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      line-height: 1.5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+      align-items: center;
+    }
+
+    .meta-bar {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      line-height: 1.5;
+    }
+
+    /* SECTION */
+    section {
+      margin-bottom: 46px;
+    }
+
+    .section-header {
+      font-family: var(--font-pixel);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: var(--accent-border);
+    }
+
+    /* BIO */
+    .bio {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .bio p strong {
+      color: #ffffff;
+    }
+
+    .bio a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent);
+    }
+
+    .bio a:hover {
+      text-shadow: 0 0 6px var(--accent-glow);
+      border-bottom-style: solid;
+    }
+
+    .bio code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: var(--bg-panel);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+
+    /* PROJECTS */
+    .project-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--border-radius);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      transition: all 0.15s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent-dim);
+      transform: translateY(-1px);
+    }
+
+    .card-head,
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .proj-title {
+      font-family: var(--font-pixel);
+      font-size: 0.88rem;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .project-card:hover .proj-title {
+      color: var(--accent);
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .proj-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 4px 9px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 2px;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .proj-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .proj-btn:active {
+      transform: scale(0.96);
+    }
+
+    .proj-btn:focus-visible,
+    .copy-btn:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .proj-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      padding: 1px 6px;
+      border-radius: 2px;
+    }
+
+    /* COMMS */
+    .comms-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--border-radius);
+      padding: 18px 20px;
+    }
+
+    .comms-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--accent-border);
+    }
+
+    .comms-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .comms-key {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      width: 75px;
+      flex-shrink: 0;
+    }
+
+    .comms-val {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text);
+      text-decoration: none;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
+    .comms-val:hover {
+      color: var(--accent);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 4px 9px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 6px var(--accent-glow);
+    }
+
+    .copy-btn:active {
+      transform: scale(0.96);
+    }
+
+    .copy-btn.copied {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* READS CAROUSEL */
+    .reads-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .reads-header-row .section-header {
+      margin-bottom: 0;
+      flex-grow: 1;
+    }
+
+    .reads-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .reads-nav-btn {
+      background: var(--bg-panel);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .reads-nav-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    .reads-counter {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      min-width: 54px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .reads-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 16px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .reads-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .read-card {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      background: var(--bg-panel);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--border-radius);
+      padding: 18px 20px;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+    }
+
+    .read-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent-dim);
+    }
+
+    .read-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .read-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      padding: 1px 6px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    .read-author {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text-dim);
+    }
+
+    .read-title {
+      font-family: var(--font-pixel);
+      font-size: 0.86rem;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .read-card:hover .read-title {
+      color: var(--accent);
+    }
+
+    .read-note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* GPG VERIFICATION */
+    .gpg-box {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--accent-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+    }
+
+    .gpg-row,
+    .gpg-cmd-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .gpg-label {
+      color: var(--text-dim);
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+
+    .gpg-key {
+      color: var(--accent);
+      background: var(--bg);
+      padding: 2px 6px;
+      border: 1px solid var(--accent-border);
+      border-radius: 2px;
+      font-size: 0.72rem;
+      word-break: break-all;
+    }
+
+    .gpg-cmd-row {
+      background: var(--bg);
+      border: 1px solid var(--accent-border);
+      border-radius: 2px;
+      padding: 6px 10px;
+    }
+
+    .gpg-prompt {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .gpg-cmd {
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      word-break: break-all;
+      flex-grow: 1;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--accent-border);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--bg-panel);
+      border: 1.5px solid var(--accent);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      box-shadow: 0 0 16px var(--accent-glow);
+      z-index: 1000;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0 0 60px;
+      }
+      .container {
+        padding: 0 16px;
+      }
+
+      /* Clean non-wrapping Mobile HUD */
+      .hud {
+        padding: 8px 0;
+        margin-bottom: 26px;
+        font-size: 0.72rem;
+      }
+      .hud-inner {
+        padding: 0 16px;
+        flex-wrap: nowrap;
+        gap: 10px;
+      }
+      .hud-brand {
+        font-size: 0.78rem;
+      }
+      .hud-ticker {
+        gap: 8px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      /* Mobile Header */
+      header {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+      }
+      .role-badge {
+        font-size: 0.58rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      h1 {
+        font-size: clamp(1.1rem, 5.2vw, 1.35rem);
+        line-height: 1.3;
+        margin-bottom: 10px;
+      }
+      .tagline {
+        font-size: 0.85rem;
+        line-height: 1.45;
+        margin-bottom: 10px;
+        gap: 3px 6px;
+      }
+      .meta-bar {
+        font-size: 0.74rem;
+        gap: 6px 8px;
+      }
+
+      /* Sections & Projects */
+      section {
+        margin-bottom: 38px;
+      }
+      .section-header {
+        font-size: 0.68rem;
+        margin-bottom: 14px;
+      }
+      .project-card {
+        padding: 14px 16px;
+      }
+      .proj-title {
+        font-size: 0.82rem;
+      }
+      .proj-desc {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+      .proj-btn {
+        font-size: 0.68rem;
+        padding: 4px 8px;
+      }
+
+      /* Comms & Footer */
+      .comms-panel {
+        padding: 14px 16px;
+      }
+      .comms-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 10px 0;
+      }
+      .comms-val {
+        font-size: 0.82rem;
+        word-break: break-all;
+        white-space: normal;
+      }
+      .copy-btn {
+        align-self: flex-start;
+        font-size: 0.62rem;
+        padding: 3px 8px;
+      }
+      /* Reads Carousel */
+      .read-card {
+        padding: 14px 16px;
+      }
+      .read-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 6px;
+      }
+      .read-title {
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+      .read-author {
+        font-size: 0.72rem;
+      }
+      .read-note {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      /* GPG */
+      .gpg-row,
+      .gpg-cmd-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .gpg-key {
+        font-size: 0.65rem;
+      }
+      .gpg-cmd {
+        font-size: 0.7rem;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
-<body data-theme="green">
+<body>
+  <!-- If you're reading this in view-source, we should talk: hire@nikhilsahani.com -->
 
-  <!-- CRT Scanlines (Off by default) & Vignette -->
-  <div class="crt-overlay"></div>
-  <div class="vignette"></div>
-
-  <!-- FULL-PAGE SNAKE CANVAS -->
-  <canvas id="snake-canvas"></canvas>
-
-  <!-- TOP TELEMETRY HUD -->
-  <nav class="hud-telemetry" aria-label="Telemetry HUD">
-    <div class="container hud-telemetry-inner">
+  <!-- Navigation HUD -->
+  <nav class="hud" aria-label="Navigation">
+    <div class="hud-inner">
+      <a href="#" class="hud-brand">~/h4r0015k</a>
       <div class="hud-ticker">
-        <span class="hud-item"><span class="dot"></span> <strong>SYS:</strong> ONLINE</span>
-        <span class="hud-item"><strong>EXP:</strong> 7+ YRS</span>
-        <span class="hud-item"><strong>LOC:</strong> THANE / MUMBAI, IN</span>
-      </div>
-
-      <div class="hud-controls">
-        <button id="btn-audio" class="hud-btn" onclick="toggleAudio()" title="Toggle 8-bit Audio">AUDIO: [OFF]</button>
-        <button id="btn-crt" class="hud-btn" onclick="toggleCRT()" title="Toggle CRT Filter">CRT: [OFF]</button>
-        <button id="btn-theme" class="hud-btn" onclick="cycleTheme()" title="Switch Palette">PALETTE: [GREEN]</button>
+        <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="hud-link">[ CV ↗ ]</a>
+        <span>•</span>
+        <a href="#comms" class="hud-link">[ CONTACT ↘ ]</a>
       </div>
     </div>
   </nav>
 
-  <main class="container">
+  <div class="container">
 
-    <!-- HERO SECTION / PROFILE CARD -->
-    <section class="hero-section" id="profile">
-      <div class="character-card">
-        <div class="hero-content">
-          <div class="card-header-meta">
-            <div class="hero-role-badge">
-              <span>// SENIOR PRODUCT ENGINEER</span>
-            </div>
+    <!-- Header -->
+    <header>
+      <div class="role-badge">// SENIOR PRODUCT ENGINEER</div>
+      <h1>NIKHIL SAHANI</h1>
+
+      <div class="tagline">
+        <span>Distributed Systems</span>
+        <span>•</span>
+        <span>Backend Infrastructure</span>
+        <span>•</span>
+        <span>Applied AI</span>
+      </div>
+
+      <div class="meta-bar">
+        <span>Thane / Mumbai, India</span>
+        <span class="hud-meta">•</span>
+        <span>Available for Senior Engineering Roles</span>
+      </div>
+    </header>
+
+    <!-- Bio (Humane, Grounded, Zero Slop, Lifelong Tinkerer, Applied AI) -->
+    <section>
+      <div class="section-header">// ABOUT</div>
+      <div class="bio">
+        <p>
+          Hey, I'm Nikhil.
+        </p>
+
+        <p>
+          I started playing around with code and computers long before I ever worked professionally. What hooked me back then is the same thing that keeps me excited today: genuine curiosity about how software works under the hood, experimenting with new languages and runtimes, and building things from scratch just to see how they tick.
+        </p>
+
+        <p>
+          Over the past 7+ years, that curiosity grew into building production backend services, distributed systems, and applied AI workflows. Most of my day-to-day work has centered on concurrency and scale: edge caching for high-traffic media sites, transaction safety in fintech systems, and designing services that stay fast and reliable under pressure.
+        </p>
+
+        <p>
+          Lately, I spend a lot of time working with applied AI: integrating LLMs into backend pipelines, building pragmatic agentic tooling, and designing structured workflows that solve real problems reliably without the hype.
+        </p>
+
+        <p>
+          Whether it's cloud infrastructure or emerging tech, I have a strong bias for simple, predictable architectures that run quietly and don't wake anyone up at night.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">// PROJECTS</div>
+
+      <!-- Mountain -->
+      <div class="project-card">
+        <div class="card-head">
+          <span class="proj-title">Mountain</span>
+          <div class="proj-links">
+            <a href="https://nikhilsahani.com/Mountain/" target="_blank" rel="noopener noreferrer" class="proj-btn">[ LIVE APP ↗ ]</a>
+            <a href="https://github.com/h4r0015k/Mountain" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
           </div>
+        </div>
+        <p class="proj-desc">
+          Local-first, zero-knowledge password vault running entirely in the browser using the Web Crypto API. Encrypted with AES-256-GCM, recovered with a 12-word BIP-39 paper key, and stored locally in IndexedDB. No accounts, no cloud sync, no tracking.
+        </p>
+        <div class="tags">
+          <span class="tag">AES-256-GCM</span>
+          <span class="tag">WEB CRYPTO API</span>
+          <span class="tag">BIP-39</span>
+          <span class="tag">INDEXEDDB</span>
+          <span class="tag">LOCAL-FIRST</span>
+        </div>
+      </div>
 
-          <h1 class="hero-name">
-            NIKHIL SAHANI
-            <span class="hero-handle">[@h4r0015k]</span>
-          </h1>
-
-          <div class="hero-title">
-            Systems • Web Products • Applied AI
+      <!-- IRCBot-C -->
+      <div class="project-card">
+        <div class="card-head">
+          <span class="proj-title">IRCBot-C</span>
+          <div class="proj-links">
+            <a href="https://github.com/h4r0015k/IRCBot-C" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
           </div>
+        </div>
+        <p class="proj-desc">
+          Minimal IRC client written from scratch in ANSI C using raw POSIX/BSD sockets. Handles TCP streaming, non-blocking I/O, and RFC 1459 protocol PING/PONG loops without third-party dependencies.
+        </p>
+        <div class="tags">
+          <span class="tag">ANSI C</span>
+          <span class="tag">BSD SOCKETS</span>
+          <span class="tag">RFC 1459</span>
+          <span class="tag">TCP STREAMS</span>
+        </div>
+      </div>
 
-          <p class="hero-bio">
-            I build backend services, web applications, and pragmatic AI workflows. 
-            Focused on simple architectures, low operational drag, and reliable software.
+      <!-- WhatBot -->
+      <div class="project-card">
+        <div class="card-head">
+          <span class="proj-title">WhatBot</span>
+          <div class="proj-links">
+            <a href="https://github.com/h4r0015k/WhatBot" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+          </div>
+        </div>
+        <p class="proj-desc">
+          Early automated WhatsApp cryptocurrency tipping bot (2015). Built with Python, reverse-engineered WhatsApp protocol handling via Yowsup, MySQL, and Block.io APIs.
+        </p>
+        <div class="tags">
+          <span class="tag">PYTHON</span>
+          <span class="tag">YOWSUP</span>
+          <span class="tag">MYSQL</span>
+          <span class="tag">BLOCK.IO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books / Influences Carousel -->
+    <section id="reads">
+      <div class="reads-header-row">
+        <div class="section-header">// READS</div>
+        <div class="reads-nav">
+          <button class="reads-nav-btn" onclick="slideReads(-1)" aria-label="Previous Book">[ ◀ ]</button>
+          <span class="reads-counter" id="reads-counter">01 / 03</span>
+          <button class="reads-nav-btn" onclick="slideReads(1)" aria-label="Next Book">[ ▶ ]</button>
+        </div>
+      </div>
+
+      <div class="reads-carousel" id="reads-carousel">
+        <!-- Entry 1 -->
+        <div class="read-card" data-index="0">
+          <div class="read-card-top">
+            <span class="read-tag">SYSTEMS FOUNDATION</span>
+            <span class="read-author">Brian W. Kernighan &amp; Dennis M. Ritchie</span>
+          </div>
+          <div class="read-title">The C Programming Language</div>
+          <p class="read-note">
+            The canonical systems programming text. Terse, rigorous, and foundational for understanding memory layout, pointer mechanics, and low-level discipline.
           </p>
+        </div>
 
-          <!-- Actions -->
-          <div class="hero-actions">
-            <a href="#comms" class="btn-game primary" onclick="sound.playClick()">
-              [ CONTACT ME ]
-            </a>
+        <!-- Entry 2 -->
+        <div class="read-card" data-index="1">
+          <div class="read-card-top">
+            <span class="read-tag">ORIGIN STORY</span>
+            <span class="read-author">Dan Gookin</span>
           </div>
+          <div class="read-title">C For Dummies</div>
+          <p class="read-note">
+            Where it all began. The book that introduced me to coding before any formal computer science education. Broke down complex machine concepts with zero pretension and sparked my lifelong fascination with computers.
+          </p>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="read-card" data-index="2">
+          <div class="read-card-top">
+            <span class="read-tag">DISTRIBUTED SYSTEMS</span>
+            <span class="read-author">Martin Kleppmann</span>
+          </div>
+          <div class="read-title">Designing Data-Intensive Applications</div>
+          <p class="read-note">
+            The modern bible for backend and storage systems. Unpacks replication anomalies, consensus algorithms, partition tolerance, and transactional invariants in production.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- BUILDING SECTION -->
-    <section id="building" class="building-section">
-      <div class="building-panel">
-        <div class="comms-header">// PROJECTS</div>
-        <div class="building-grid">
-
-          <a href="https://nikhilsahani.com/Mountain/" target="_blank" rel="noopener noreferrer" class="project-card">
-            <div class="project-status">
-              <span class="status-dot active"></span>
-              <span>ACTIVE</span>
-            </div>
-            <h3 class="project-name">Mountain</h3>
-            <p class="project-desc">
-              Local-first, zero-knowledge password manager. AES-256-GCM encryption, 
-              BIP-39 paper key — no servers, no accounts, no tracking. Everything 
-              stays on your device.
-            </p>
-            <div class="project-tags">
-              <span class="tag">OPEN SOURCE</span>
-              <span class="tag">PRIVACY</span>
-              <span class="tag">LOCAL-FIRST</span>
-            </div>
-            <span class="project-link">VIEW PROJECT ↗</span>
-          </a>
-
-        </div>
-
-        <!-- ARCHIVE -->
-        <div class="archive-section-header">// ARCHIVE</div>
-        <div class="archive-grid">
-
-          <a href="https://github.com/h4r0015k/IRCBot-C" target="_blank" rel="noopener noreferrer" class="archive-card">
-            <div class="archive-card-top">
-              <span class="archive-name">IRCBot-C</span>
-              <span class="lang-tag">C • 2018</span>
-            </div>
-            <p class="archive-desc">
-              Lightweight IRC client built with raw POSIX/BSD sockets. Handles TCP streaming, channel handshakes, and RFC 1459 PING/PONG protocol.
-            </p>
-            <span class="archive-link">GITHUB ↗</span>
-          </a>
-
-          <a href="https://github.com/h4r0015k/WhatBot" target="_blank" rel="noopener noreferrer" class="archive-card">
-            <div class="archive-card-top">
-              <span class="archive-name">WhatBot</span>
-              <span class="lang-tag">PYTHON • 2015</span>
-            </div>
-            <p class="archive-desc">
-              Early WhatsApp cryptocurrency tipping and wallet bot built with MySQL and Block.io APIs.
-            </p>
-            <span class="archive-link">GITHUB ↗</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMS & DIRECT CONTACT SECTION -->
-    <section id="comms" class="comms-section">
+    <!-- Comms -->
+    <section id="comms">
+      <div class="section-header">// COMMS</div>
       <div class="comms-panel">
-        <div class="comms-header">// COMMS</div>
-        <div class="comms-grid">
-          <div class="comms-row">
-            <span class="ch-icon">✉</span>
-            <span class="ch-key">EMAIL</span>
-            <a href="mailto:hire@nikhilsahani.com" class="ch-val" onclick="sound.playClick()">hire@nikhilsahani.com</a>
-            <button class="copy-btn" onclick="copyText('hire@nikhilsahani.com', 'EMAIL')">COPY</button>
-          </div>
+        <div class="comms-row">
+          <span class="comms-key">EMAIL</span>
+          <a href="mailto:hire@nikhilsahani.com?subject=Senior%20Engineering%20Opportunity%20-%20Nikhil%20Sahani" class="comms-val">hire@nikhilsahani.com</a>
+          <button class="copy-btn" onclick="copyText('hire@nikhilsahani.com', this)">[ COPY ]</button>
+        </div>
 
-          <div class="comms-row">
-            <span class="ch-icon">☎</span>
-            <span class="ch-key">PHONE</span>
-            <a href="tel:+918104408291" class="ch-val" onclick="sound.playClick()">+91 8104408291</a>
-            <button class="copy-btn" onclick="copyText('+918104408291', 'PHONE')">COPY</button>
-          </div>
+        <div class="comms-row">
+          <span class="comms-key">PHONE</span>
+          <a href="tel:+918104408291" class="comms-val">+91 8104408291</a>
+          <button class="copy-btn" onclick="copyText('+918104408291', this)">[ COPY ]</button>
+        </div>
 
-          <div class="comms-row">
-            <span class="ch-icon">⌥</span>
-            <span class="ch-key">GITHUB</span>
-            <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="ch-val">github.com/h4r0015k <span class="ext-arrow">↗</span></a>
-          </div>
+        <div class="comms-row">
+          <span class="comms-key">GITHUB</span>
+          <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="comms-val">github.com/h4r0015k&nbsp;↗</a>
+        </div>
 
-          <div class="comms-row">
-            <span class="ch-icon">◉</span>
-            <span class="ch-key">LINKEDIN</span>
-            <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="ch-val">in/nikhil-sahani <span class="ext-arrow">↗</span></a>
+        <div class="comms-row">
+          <span class="comms-key">LINKEDIN</span>
+          <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="comms-val">in/nikhil-sahani&nbsp;↗</a>
+        </div>
+
+        <div class="comms-row">
+          <span class="comms-key">RESUME</span>
+          <a href="mailto:hire@nikhilsahani.com?subject=Resume%20Request%20-%20Nikhil%20Sahani" class="comms-val">Request via hire@nikhilsahani.com&nbsp;↗</a>
+        </div>
+
+        <div class="gpg-box">
+          <div class="gpg-row">
+            <span class="gpg-label">GPG / SIGNING KEY:</span>
+            <code class="gpg-key">45BF C819 0216 801D 8F61 B0FC A7AF 91F7 CF4F 35FF</code>
+            <button class="copy-btn" onclick="copyText('45BFC8190216801D8F61B0FCA7AF91F7CF4F35FF', this)">[ COPY KEY ]</button>
+          </div>
+          <div class="gpg-cmd-row">
+            <span class="gpg-prompt">$</span>
+            <span class="gpg-cmd">curl -s https://nikhilsahani.com/key.asc | gpg --import</span>
+            <button class="copy-btn" onclick="copyText('curl -s https://nikhilsahani.com/key.asc | gpg --import', this)">[ COPY CMD ]</button>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
+    <!-- Footer -->
+    <footer>
+      <div>NIKHIL SAHANI // h4r0015k</div>
+      <div>STATIC HTML • ZERO TRACKERS</div>
+      <div><a href="#">[▲ TOP]</a></div>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-credits">
-      <div>
-        <span>NIKHIL SAHANI // SENIOR PRODUCT ENGINEER</span>
-      </div>
-      <div>
-        <span>HOSTED ON GITHUB PAGES</span>
-      </div>
-      <div>
-        <a href="#profile" class="hud-btn" onclick="sound.playClick()">▲ TOP</a>
-      </div>
-    </div>
-  </footer>
+  </div>
 
-  <!-- Toast Notification Node -->
-  <div id="hud-toast" class="hud-toast"></div>
+  <div id="toast" class="toast"></div>
 
-  <script src="main.js"></script>
+  <script>
+    function copyText(text, btn) {
+      const done = () => {
+        showToast('COPIED TO CLIPBOARD');
+        if (btn) {
+          const old = btn.textContent;
+          btn.textContent = '[ COPIED ]';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = old;
+            btn.classList.remove('copied');
+          }, 1500);
+        }
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(done).catch(() => {});
+      } else {
+        const t = document.createElement('textarea');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        done();
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = `▶ ${msg}`;
+      toast.classList.add('show');
+      clearTimeout(window._tt);
+      window._tt = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    /* Reads Carousel Controller */
+    function slideReads(direction) {
+      const carousel = document.getElementById('reads-carousel');
+      if (!carousel) return;
+      const cards = carousel.querySelectorAll('.read-card');
+      if (!cards.length) return;
+
+      const cardWidth = cards[0].offsetWidth + 16;
+      let currentIndex = Math.round(carousel.scrollLeft / cardWidth);
+      let nextIndex = currentIndex + direction;
+      if (nextIndex < 0) nextIndex = cards.length - 1;
+      if (nextIndex >= cards.length) nextIndex = 0;
+
+      carousel.scrollTo({
+        left: nextIndex * cardWidth,
+        behavior: 'smooth'
+      });
+      updateReadsCounter(nextIndex + 1, cards.length);
+    }
+
+    function updateReadsCounter(current, total) {
+      const counter = document.getElementById('reads-counter');
+      if (counter) {
+        const pad = (n) => String(n).padStart(2, '0');
+        counter.textContent = `${pad(current)} / ${pad(total)}`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const readsCarousel = document.getElementById('reads-carousel');
+      if (readsCarousel) {
+        let scrollTimer = null;
+        readsCarousel.addEventListener('scroll', () => {
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            const cards = readsCarousel.querySelectorAll('.read-card');
+            if (!cards.length) return;
+            const cardWidth = cards[0].offsetWidth + 16;
+            const current = Math.round(readsCarousel.scrollLeft / cardWidth) + 1;
+            updateReadsCounter(Math.min(Math.max(1, current), cards.length), cards.length);
+          }, 60);
+        }, { passive: true });
+      }
+    });
+
+    try {
+      console.log(
+        '%c[SYS_INIT] Nikhil Sahani // h4r0015k%c\nSenior Product Engineer • Distributed Systems • Concurrency • Applied AI\nTCP socket stream: ESTABLISHED\nDirect: hire@nikhilsahani.com | https://github.com/h4r0015k',
+        'color: #00ff66; font-family: monospace; font-size: 13px; font-weight: bold; background: #070a08; padding: 2px 4px; border: 1px solid #00ff66; border-radius: 2px;',
+        'color: #8fae98; font-family: monospace; font-size: 11px; line-height: 1.6;'
+      );
+    } catch (_) {}
+  </script>
 </body>
 </html>
