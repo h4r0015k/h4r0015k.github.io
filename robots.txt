@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# XML Sitemap for search engines
+Sitemap: https://nikhilsahani.com/sitemap.xml
+
 # Machine-readable summary for AI agents and LLMs
 # Spec: https://llmstxt.org
 # LLM endpoint: https://nikhilsahani.com/llms.txt
