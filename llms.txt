@@ -25,6 +25,8 @@ Nikhil Sahani is a software engineer with 7+ years of experience building resili
 - **Mountain**: Local-first, zero-knowledge browser password vault. Uses the Web Crypto API with AES-256-GCM encryption, PBKDF2-HMAC-SHA256 key derivation, deterministic 12-word BIP-39 mnemonic recovery, and IndexedDB local storage. Zero sync servers, zero tracking, zero external network dependencies.
   - Live Application: https://nikhilsahani.com/Mountain/
   - Source Repository: https://github.com/h4r0015k/Mountain
+- **Memory**: Custom heap memory allocator implemented in pure ANSI C providing malloc, free, realloc, and calloc. Built to understand memory alignment, heap fragmentation, and chunk headers from scratch; verified against real Linux binaries via dynamic linker interposition (LD_PRELOAD).
+  - Source Repository: https://github.com/h4r0015k/Memory
 - **IRCBot-C**: Minimalist IRC client written from scratch in ANSI C using raw POSIX/BSD sockets. Handles direct TCP streams, non-blocking I/O polling, and RFC 1459 protocol PING/PONG keep-alive loops without third-party libraries.
   - Source Repository: https://github.com/h4r0015k/IRCBot-C
 - **WhatBot**: Early automated WhatsApp cryptocurrency micro-tipping bot (2015). Interfaced with the WhatsApp protocol via Yowsup, managing transaction state in MySQL and programmatic disbursements with Block.io APIs.

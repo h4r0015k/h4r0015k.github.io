@@ -275,6 +275,8 @@
     .proj-links {
       display: flex;
       gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .proj-btn {
@@ -290,6 +292,7 @@
       transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
+      cursor: pointer;
     }
 
     .proj-btn:hover {
@@ -314,6 +317,14 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 12px;
+    }
+
+    .section-intro {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-top: -6px;
+      margin-bottom: 20px;
     }
 
     .tags {
