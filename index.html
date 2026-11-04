@@ -5,19 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nikhil Sahani - Senior Product Engineer | Backend & Systems</title>
   
-  <meta name="description" content="Nikhil Sahani (h4r0015k) - Senior Product Engineer based in Thane / Mumbai. Focused on distributed backends, high-concurrency systems, and applied AI.">
+  <meta name="description" content="Nikhil Sahani (h4r0015k) - Senior Product Engineer with 7+ years of experience, building backend systems, distributed services, and practical AI tooling.">
   <meta name="author" content="Nikhil Sahani">
   <link rel="canonical" href="https://nikhilsahani.com/">
   
   <meta property="og:title" content="Nikhil Sahani - Senior Product Engineer">
-  <meta property="og:description" content="Senior Product Engineer focused on distributed backends, high-concurrency systems, and applied AI.">
+  <meta property="og:description" content="Senior Product Engineer with 7+ years of experience, building backend systems, distributed services, and practical AI tooling.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nikhilsahani.com/">
   <meta property="og:site_name" content="Nikhil Sahani">
+  <meta property="og:image" content="https://nikhilsahani.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nikhil Sahani - Senior Product Engineer">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nikhil Sahani - Senior Product Engineer">
-  <meta name="twitter:description" content="Senior Product Engineer focused on distributed backends, high-concurrency systems, and applied AI.">
+  <meta name="twitter:description" content="Senior Product Engineer with 7+ years of experience, building backend systems, distributed services, and practical AI tooling.">
+  <meta name="twitter:image" content="https://nikhilsahani.com/og-image.png">
 
   <meta name="theme-color" content="#070a08">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -28,32 +33,57 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Nikhil Sahani",
-    "alternateName": ["h4r0015k", "Nikhil"],
-    "jobTitle": "Senior Product Engineer",
-    "url": "https://nikhilsahani.com/",
-    "mainEntityOfPage": "https://nikhilsahani.com/",
-    "sameAs": [
-      "https://github.com/h4r0015k",
-      "https://www.linkedin.com/in/nikhil-sahani/"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Thane / Mumbai",
-      "addressCountry": "IN"
-    },
-    "knowsAbout": [
-      "Distributed Systems",
-      "Backend Infrastructure",
-      "Applied AI",
-      "High-Concurrency Caching",
-      "PostgreSQL",
-      "Redis",
-      "Go",
-      "TypeScript",
-      "ANSI C",
-      "Local-First Software"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://nikhilsahani.com/#website",
+        "url": "https://nikhilsahani.com/",
+        "name": "Nikhil Sahani",
+        "description": "Senior Product Engineer with 7+ years of experience, building backend systems, distributed services, and practical AI tooling.",
+        "publisher": {
+          "@id": "https://nikhilsahani.com/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nikhilsahani.com/#person",
+        "name": "Nikhil Sahani",
+        "givenName": "Nikhil",
+        "familyName": "Sahani",
+        "alternateName": ["h4r0015k", "Nikhil Sahani (h4r0015k)"],
+        "jobTitle": "Senior Product Engineer",
+        "description": "Senior Product Engineer with 7+ years of experience building backend systems, distributed services, and practical AI tooling. Creator of Mountain and WhatBot.",
+        "disambiguatingDescription": "Senior Product Engineer based in Thane / Mumbai with 7+ years of experience in distributed systems, backend infrastructure, and local-first software. Not affiliated with NS SiteCraft Solutions or medical practices.",
+        "url": "https://nikhilsahani.com/",
+        "image": "https://nikhilsahani.com/og-image.png",
+        "mainEntityOfPage": "https://nikhilsahani.com/",
+        "email": "hire@nikhilsahani.com",
+        "telephone": "+918104408291",
+        "sameAs": [
+          "https://github.com/h4r0015k",
+          "https://www.linkedin.com/in/nikhil-sahani/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Thane",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Distributed Systems",
+          "Backend Infrastructure",
+          "Applied AI",
+          "High-Concurrency Caching",
+          "PostgreSQL",
+          "Redis",
+          "Go",
+          "TypeScript",
+          "ANSI C",
+          "Local-First Software",
+          "Web Crypto API",
+          "Zero-Knowledge Cryptography"
+        ]
+      }
     ]
   }
   </script>
@@ -101,6 +131,7 @@
       font-size: 15px;
       line-height: 1.7;
       scroll-behavior: smooth;
+      overflow-x: clip;
     }
 
     body {
@@ -113,6 +144,7 @@
       background-size: 100% 100%, 32px 32px, 32px 32px;
       color: var(--text);
       padding: 0 0 80px;
+      overflow-x: clip;
     }
 
     /* Subtle CRT Scanlines & Vignette */
@@ -121,8 +153,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%);
       background-size: 100% 3px;
       pointer-events: none;
@@ -188,6 +220,9 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 2px;
     }
 
     .hud-link:hover {
@@ -245,6 +280,7 @@
     /* SECTION */
     section {
       margin-bottom: 46px;
+      scroll-margin-top: 60px;
     }
 
     .section-header {
@@ -341,6 +377,8 @@
     .proj-links {
       display: flex;
       gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .proj-btn {
@@ -356,6 +394,7 @@
       transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
+      cursor: pointer;
     }
 
     .proj-btn:hover {
@@ -370,6 +409,7 @@
 
     .proj-btn:focus-visible,
     .copy-btn:focus-visible,
+    .reads-nav-btn:focus-visible,
     a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
@@ -380,6 +420,14 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 12px;
+    }
+
+    .section-intro {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-top: -6px;
+      margin-bottom: 20px;
     }
 
     .tags {
@@ -429,12 +477,20 @@
       flex-shrink: 0;
     }
 
+    .comms-action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-grow: 1;
+      min-width: 0;
+    }
+
     .comms-val {
       font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--text);
       text-decoration: none;
-      flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -503,6 +559,9 @@
       font-family: var(--font-mono);
       font-size: 0.72rem;
       padding: 3px 8px;
+      min-height: 24px;
+      min-width: 28px;
+      justify-content: center;
       border-radius: 2px;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -615,48 +674,73 @@
       font-size: 0.76rem;
     }
 
-    .gpg-row,
-    .gpg-cmd-row {
+    .gpg-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gpg-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      flex-wrap: wrap;
     }
 
     .gpg-label {
       color: var(--text-dim);
       font-weight: 700;
       font-size: 0.7rem;
+      letter-spacing: 0.5px;
     }
 
     .gpg-key {
       color: var(--accent);
       background: var(--bg);
-      padding: 2px 6px;
+      padding: 6px 10px;
       border: 1px solid var(--accent-border);
       border-radius: 2px;
-      font-size: 0.72rem;
-      word-break: break-all;
+      font-size: 0.74rem;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      letter-spacing: 0.5px;
+      line-height: 1.45;
+      display: block;
     }
 
     .gpg-cmd-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       background: var(--bg);
       border: 1px solid var(--accent-border);
       border-radius: 2px;
       padding: 6px 10px;
     }
 
+    .gpg-cmd-code {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-grow: 1;
+      min-width: 0;
+    }
+
     .gpg-prompt {
       color: var(--accent);
       font-weight: 700;
+      flex-shrink: 0;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .gpg-cmd {
       color: var(--text-muted);
       font-size: 0.74rem;
-      word-break: break-all;
-      flex-grow: 1;
+      font-family: var(--font-mono);
+      overflow-wrap: anywhere;
+      word-break: normal;
     }
 
     /* FOOTER */
@@ -681,8 +765,9 @@
     /* TOAST */
     .toast {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: max(20px, env(safe-area-inset-bottom, 20px));
+      left: max(20px, env(safe-area-inset-left, 20px));
+      max-width: calc(100vw - 40px);
       background: var(--bg-panel);
       border: 1.5px solid var(--accent);
       color: var(--text);
@@ -715,20 +800,30 @@
       .hud {
         padding: 8px 0;
         margin-bottom: 26px;
-        font-size: 0.72rem;
+        font-size: clamp(0.64rem, 2.7vw, 0.72rem);
       }
       .hud-inner {
-        padding: 0 16px;
+        padding: 0 12px;
         flex-wrap: nowrap;
-        gap: 10px;
+        gap: 6px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .hud-inner::-webkit-scrollbar {
+        display: none;
       }
       .hud-brand {
-        font-size: 0.78rem;
+        font-size: clamp(0.70rem, 3vw, 0.78rem);
+        flex-shrink: 0;
+        padding: 4px 0;
       }
       .hud-ticker {
-        gap: 8px;
+        gap: clamp(4px, 1.8vw, 8px);
         flex-shrink: 0;
         white-space: nowrap;
+      }
+      .hud-extra {
+        display: none;
       }
 
       /* Mobile Header */
@@ -756,6 +851,9 @@
         font-size: 0.74rem;
         gap: 6px 8px;
       }
+      .hud-meta {
+        display: none;
+      }
 
       /* Sections & Projects */
       section {
@@ -777,7 +875,8 @@
       }
       .proj-btn {
         font-size: 0.68rem;
-        padding: 4px 8px;
+        padding: 5px 9px;
+        min-height: 28px;
       }
 
       /* Comms & Footer */
@@ -787,18 +886,24 @@
       .comms-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
+        gap: 4px;
         padding: 10px 0;
       }
+      .comms-action {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+      }
       .comms-val {
-        font-size: 0.82rem;
-        word-break: break-all;
+        font-size: 0.8rem;
+        word-break: break-word;
         white-space: normal;
       }
       .copy-btn {
-        align-self: flex-start;
         font-size: 0.62rem;
-        padding: 3px 8px;
+        padding: 4px 8px;
+        min-height: 26px;
+        flex-shrink: 0;
       }
       /* Reads Carousel */
       .read-card {
@@ -821,25 +926,50 @@
         font-size: 0.82rem;
         line-height: 1.55;
       }
+      .reads-nav-btn {
+        padding: 4px 9px;
+        min-height: 26px;
+      }
 
       /* GPG */
-      .gpg-row,
+      .gpg-header {
+        width: 100%;
+      }
+      .gpg-key {
+        font-size: 0.64rem;
+        padding: 6px 8px;
+        letter-spacing: 0.3px;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
       .gpg-cmd-row {
         flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .gpg-cmd-code {
         align-items: flex-start;
         gap: 6px;
       }
-      .gpg-key {
-        font-size: 0.65rem;
-      }
       .gpg-cmd {
-        font-size: 0.7rem;
+        font-size: 0.68rem;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+      .gpg-cmd-row .copy-btn {
+        align-self: flex-end;
       }
 
       footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+      }
+      footer a {
+        display: inline-block;
+        padding: 4px 0;
       }
     }
   </style>
@@ -852,9 +982,15 @@
     <div class="hud-inner">
       <a href="#" class="hud-brand">~/h4r0015k</a>
       <div class="hud-ticker">
-        <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="hud-link">[ CV ↗ ]</a>
+        <a href="#about" class="hud-link">[ ABOUT ]</a>
         <span>•</span>
-        <a href="#comms" class="hud-link">[ CONTACT ↘ ]</a>
+        <a href="#projects" class="hud-link">[ PROJECTS ]</a>
+        <span class="hud-extra">•</span>
+        <a href="#reads" class="hud-link hud-extra">[ READS ]</a>
+        <span>•</span>
+        <a href="#comms" class="hud-link">[ CONTACT ]</a>
+        <span class="hud-extra">•</span>
+        <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="hud-link hud-extra">[ CV ↗ ]</a>
       </div>
     </div>
   </nav>
@@ -867,9 +1003,9 @@
       <h1>NIKHIL SAHANI</h1>
 
       <div class="tagline">
-        <span>Distributed Systems</span>
+        <span>Distributed Backends</span>
         <span>•</span>
-        <span>Backend Infrastructure</span>
+        <span>System Internals</span>
         <span>•</span>
         <span>Applied AI</span>
       </div>
@@ -881,28 +1017,28 @@
       </div>
     </header>
 
-    <!-- Bio (Humane, Grounded, Zero Slop, Lifelong Tinkerer, Applied AI) -->
-    <section>
+    <!-- Bio (Grounded, Simple, Senior Product Engineer) -->
+    <section id="about">
       <div class="section-header">// ABOUT</div>
       <div class="bio">
         <p>
-          Hey, I'm Nikhil.
+          Hey, I'm Nikhil Sahani.
         </p>
 
         <p>
-          I started playing around with code and computers long before I ever worked professionally. What hooked me back then is the same thing that keeps me excited today: genuine curiosity about how software works under the hood, experimenting with new languages and runtimes, and building things from scratch just to see how they tick.
+          I'm a Senior Product Engineer with 7+ years of experience, mostly building backend systems. I like working on features from start to finish, but I care a lot about the backend side: keeping things fast, handling scale, and making sure services don't break.
         </p>
 
         <p>
-          Over the past 7+ years, that curiosity grew into building production backend services, distributed systems, and applied AI workflows. Most of my day-to-day work has centered on concurrency and scale: edge caching for high-traffic media sites, transaction safety in fintech systems, and designing services that stay fast and reliable under pressure.
+          I started playing with code and computers long before I worked in tech, mostly just curious about how things worked under the hood. That never really changed. I still like knowing how software works at a lower level instead of just treating it like a black box.
         </p>
 
         <p>
-          Lately, I spend a lot of time working with applied AI: integrating LLMs into backend pipelines, building pragmatic agentic tooling, and designing structured workflows that solve real problems reliably without the hype.
+          Lately, I also spend time with AI: adding models into backend pipelines and building small, useful tools that help solve day-to-day problems.
         </p>
 
         <p>
-          Whether it's cloud infrastructure or emerging tech, I have a strong bias for simple, predictable architectures that run quietly and don't wake anyone up at night.
+          I prefer simple setups over complicated ones. The goal is always to write clean code, keep systems easy to maintain, and build things that run quietly without drama.
         </p>
       </div>
     </section>
@@ -910,6 +1046,9 @@
     <!-- Projects -->
     <section id="projects">
       <div class="section-header">// PROJECTS</div>
+      <p class="section-intro">
+        A selection of production tools and systems experiments. Some built to solve user problems; others built to dissect protocols, memory layout, and runtime mechanics from scratch.
+      </p>
 
       <!-- Mountain -->
       <div class="project-card">
@@ -921,7 +1060,7 @@
           </div>
         </div>
         <p class="proj-desc">
-          Local-first, zero-knowledge password vault running entirely in the browser using the Web Crypto API. Encrypted with AES-256-GCM, recovered with a 12-word BIP-39 paper key, and stored locally in IndexedDB. No accounts, no cloud sync, no tracking.
+          Local-first, zero-knowledge browser password vault. Explores air-gapped secret isolation using the Web Crypto API, AES-256-GCM authenticated encryption, and deterministic 12-word BIP-39 recovery phrases. Persisted in client-side IndexedDB with zero tracking and zero server dependencies.
         </p>
         <div class="tags">
           <span class="tag">AES-256-GCM</span>
@@ -929,6 +1068,26 @@
           <span class="tag">BIP-39</span>
           <span class="tag">INDEXEDDB</span>
           <span class="tag">LOCAL-FIRST</span>
+        </div>
+      </div>
+
+      <!-- Memory (C Heap Allocator) -->
+      <div class="project-card">
+        <div class="card-head">
+          <span class="proj-title">Memory</span>
+          <div class="proj-links">
+            <a href="https://github.com/h4r0015k/Memory" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+          </div>
+        </div>
+        <p class="proj-desc">
+          Custom heap memory allocator implemented in pure ANSI C providing <code>malloc</code>, <code>free</code>, <code>realloc</code>, and <code>calloc</code>. Built to understand memory alignment, heap fragmentation, and chunk headers from scratch; verified against real Linux binaries via dynamic linker interposition (<code>LD_PRELOAD</code>).
+        </p>
+        <div class="tags">
+          <span class="tag">ANSI C</span>
+          <span class="tag">VIRTUAL MEMORY</span>
+          <span class="tag">LD_PRELOAD</span>
+          <span class="tag">POSIX</span>
+          <span class="tag">SYSTEM INTERNALS</span>
         </div>
       </div>
 
@@ -941,7 +1100,7 @@
           </div>
         </div>
         <p class="proj-desc">
-          Minimal IRC client written from scratch in ANSI C using raw POSIX/BSD sockets. Handles TCP streaming, non-blocking I/O, and RFC 1459 protocol PING/PONG loops without third-party dependencies.
+          Minimal RFC 1459 IRC client written from scratch in ANSI C over raw POSIX/BSD sockets. Handles direct TCP streams, packet framing, non-blocking I/O polling, and keep-alive ping/pong loops strictly at the system call boundary without third-party network libraries.
         </p>
         <div class="tags">
           <span class="tag">ANSI C</span>
@@ -960,13 +1119,14 @@
           </div>
         </div>
         <p class="proj-desc">
-          Early automated WhatsApp cryptocurrency tipping bot (2015). Built with Python, reverse-engineered WhatsApp protocol handling via Yowsup, MySQL, and Block.io APIs.
+          Early automated WhatsApp cryptocurrency micro-tipping bot (2015). Built on reverse-engineered WhatsApp protocol layers via Yowsup, multi-signature transaction APIs, and stateful ledger tracking in MySQL to explore conversational payments before official APIs existed.
         </p>
         <div class="tags">
           <span class="tag">PYTHON</span>
           <span class="tag">YOWSUP</span>
           <span class="tag">MYSQL</span>
           <span class="tag">BLOCK.IO</span>
+          <span class="tag">REVERSE ENGINEERING</span>
         </div>
       </div>
     </section>
@@ -1027,40 +1187,54 @@
       <div class="comms-panel">
         <div class="comms-row">
           <span class="comms-key">EMAIL</span>
-          <a href="mailto:hire@nikhilsahani.com?subject=Senior%20Engineering%20Opportunity%20-%20Nikhil%20Sahani" class="comms-val">hire@nikhilsahani.com</a>
-          <button class="copy-btn" onclick="copyText('hire@nikhilsahani.com', this)">[ COPY ]</button>
+          <div class="comms-action">
+            <a href="mailto:hire@nikhilsahani.com?subject=Senior%20Engineering%20Opportunity%20-%20Nikhil%20Sahani" class="comms-val">hire@nikhilsahani.com</a>
+            <button class="copy-btn" onclick="copyText('hire@nikhilsahani.com', this)">[ COPY ]</button>
+          </div>
         </div>
 
         <div class="comms-row">
           <span class="comms-key">PHONE</span>
-          <a href="tel:+918104408291" class="comms-val">+91 8104408291</a>
-          <button class="copy-btn" onclick="copyText('+918104408291', this)">[ COPY ]</button>
+          <div class="comms-action">
+            <a href="tel:+918104408291" class="comms-val">+91 8104408291</a>
+            <button class="copy-btn" onclick="copyText('+918104408291', this)">[ COPY ]</button>
+          </div>
         </div>
 
         <div class="comms-row">
           <span class="comms-key">GITHUB</span>
-          <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="comms-val">github.com/h4r0015k&nbsp;↗</a>
+          <div class="comms-action">
+            <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="comms-val">github.com/h4r0015k&nbsp;↗</a>
+          </div>
         </div>
 
         <div class="comms-row">
           <span class="comms-key">LINKEDIN</span>
-          <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="comms-val">in/nikhil-sahani&nbsp;↗</a>
+          <div class="comms-action">
+            <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="comms-val">in/nikhil-sahani&nbsp;↗</a>
+          </div>
         </div>
 
         <div class="comms-row">
           <span class="comms-key">RESUME</span>
-          <a href="mailto:hire@nikhilsahani.com?subject=Resume%20Request%20-%20Nikhil%20Sahani" class="comms-val">Request via hire@nikhilsahani.com&nbsp;↗</a>
+          <div class="comms-action">
+            <a href="mailto:hire@nikhilsahani.com?subject=Resume%20Request%20-%20Nikhil%20Sahani" class="comms-val">Request via hire@nikhilsahani.com&nbsp;↗</a>
+          </div>
         </div>
 
         <div class="gpg-box">
           <div class="gpg-row">
-            <span class="gpg-label">GPG / SIGNING KEY:</span>
+            <div class="gpg-header">
+              <span class="gpg-label">GPG / SIGNING KEY:</span>
+              <button class="copy-btn" onclick="copyText('45BFC8190216801D8F61B0FCA7AF91F7CF4F35FF', this)">[ COPY KEY ]</button>
+            </div>
             <code class="gpg-key">45BF C819 0216 801D 8F61 B0FC A7AF 91F7 CF4F 35FF</code>
-            <button class="copy-btn" onclick="copyText('45BFC8190216801D8F61B0FCA7AF91F7CF4F35FF', this)">[ COPY KEY ]</button>
           </div>
           <div class="gpg-cmd-row">
-            <span class="gpg-prompt">$</span>
-            <span class="gpg-cmd">curl -s https://nikhilsahani.com/key.asc | gpg --import</span>
+            <div class="gpg-cmd-code">
+              <span class="gpg-prompt">$</span>
+              <span class="gpg-cmd">curl -s https://nikhilsahani.com/key.asc | gpg --import</span>
+            </div>
             <button class="copy-btn" onclick="copyText('curl -s https://nikhilsahani.com/key.asc | gpg --import', this)">[ COPY CMD ]</button>
           </div>
         </div>
@@ -1092,16 +1266,23 @@
           }, 1500);
         }
       };
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(done).catch(() => {});
+      const fallback = () => {
+        try {
+          const t = document.createElement('textarea');
+          t.value = text;
+          t.style.position = 'fixed';
+          t.style.opacity = '0';
+          document.body.appendChild(t);
+          t.select();
+          document.execCommand('copy');
+          document.body.removeChild(t);
+          done();
+        } catch (_) {}
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
       } else {
-        const t = document.createElement('textarea');
-        t.value = text;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-        done();
+        fallback();
       }
     }
 
@@ -1120,7 +1301,8 @@
       const cards = carousel.querySelectorAll('.read-card');
       if (!cards.length) return;
 
-      const cardWidth = cards[0].offsetWidth + 16;
+      const gap = parseFloat(window.getComputedStyle(carousel).gap) || 16;
+      const cardWidth = cards[0].offsetWidth + gap;
       let currentIndex = Math.round(carousel.scrollLeft / cardWidth);
       let nextIndex = currentIndex + direction;
       if (nextIndex < 0) nextIndex = cards.length - 1;
@@ -1150,7 +1332,8 @@
           scrollTimer = setTimeout(() => {
             const cards = readsCarousel.querySelectorAll('.read-card');
             if (!cards.length) return;
-            const cardWidth = cards[0].offsetWidth + 16;
+            const gap = parseFloat(window.getComputedStyle(readsCarousel).gap) || 16;
+            const cardWidth = cards[0].offsetWidth + gap;
             const current = Math.round(readsCarousel.scrollLeft / cardWidth) + 1;
             updateReadsCounter(Math.min(Math.max(1, current), cards.length), cards.length);
           }, 60);
@@ -1160,7 +1343,7 @@
 
     try {
       console.log(
-        '%c[SYS_INIT] Nikhil Sahani // h4r0015k%c\nSenior Product Engineer • Distributed Systems • Concurrency • Applied AI\nTCP socket stream: ESTABLISHED\nDirect: hire@nikhilsahani.com | https://github.com/h4r0015k',
+        '%c[SYS_INIT] Nikhil Sahani // h4r0015k%c\nSenior Product Engineer • Distributed Backends • System Internals • Applied AI\nTCP socket stream: ESTABLISHED\nDirect: hire@nikhilsahani.com | https://github.com/h4r0015k',
         'color: #00ff66; font-family: monospace; font-size: 13px; font-weight: bold; background: #070a08; padding: 2px 4px; border: 1px solid #00ff66; border-radius: 2px;',
         'color: #8fae98; font-family: monospace; font-size: 11px; line-height: 1.6;'
       );

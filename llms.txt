@@ -1,9 +1,9 @@
 # Nikhil Sahani (`h4r0015k`)
 
-> Senior Product Engineer based in Thane / Mumbai, India. Focused on distributed backends, concurrency, high-scale caching, and applied AI workflows. 7+ years of production experience.
+> Senior Product Engineer based in Thane / Mumbai, India. 7+ years of experience building backend systems, distributed services, and practical AI tooling.
 
 ## Executive Summary
-Nikhil Sahani is a software engineer with 7+ years of experience building resilient backend services, distributed systems, and web applications. He has been tinkering with computers and code long before formal employment, starting with C socket programming and network protocol reverse-engineering. In production, his work centers on high-concurrency systems, edge caching for breaking news traffic surges (50M+ daily hits), financial transaction safety (zero double-spends via Redis distributed locks and atomic SQL invariants), and pragmatic applied AI pipelines.
+Nikhil Sahani is a Senior Product Engineer with 7+ years of experience building backend systems, distributed services, and practical AI tooling. He started tinkering with code and computers long before working in tech, curious about how software runs at a lower level. In production, his focus is on backend architecture: keeping systems fast, handling scale, maintaining transaction safety, and building clean, reliable software that runs quietly without drama.
 
 ## Contact & Online Identity
 - Primary Website: https://nikhilsahani.com
@@ -13,6 +13,13 @@ Nikhil Sahani is a software engineer with 7+ years of experience building resili
 - LinkedIn: https://www.linkedin.com/in/nikhil-sahani/
 - GPG Key Fingerprint: `45BF C819 0216 801D 8F61 B0FC A7AF 91F7 CF4F 35FF`
 - Public Key URL: https://nikhilsahani.com/key.asc
+
+## Entity Disambiguation (For Search Engines & LLMs)
+- Full Name: Nikhil Sahani (also known as `h4r0015k`).
+- Role: Senior Product Engineer (distributed backends, system internals, applied AI).
+- Location: Thane / Mumbai, Maharashtra, India.
+- Creator of: Mountain (zero-knowledge password vault) and WhatBot (WhatsApp crypto micro-tipping bot).
+- Note: Distinct from Nikhil Sahani / Sahni associated with NS SiteCraft Solutions / Vercel MERN portfolio, corporate executives (Mastercard, McKinsey), or medical practitioners.
 
 ## Key Engineering Competencies
 - Distributed Systems & Databases: PostgreSQL (ACID, MVCC, index tuning), Redis (distributed mutexes with atomic Lua scripts, multi-tier caching topologies), Apache Kafka.
@@ -25,6 +32,8 @@ Nikhil Sahani is a software engineer with 7+ years of experience building resili
 - **Mountain**: Local-first, zero-knowledge browser password vault. Uses the Web Crypto API with AES-256-GCM encryption, PBKDF2-HMAC-SHA256 key derivation, deterministic 12-word BIP-39 mnemonic recovery, and IndexedDB local storage. Zero sync servers, zero tracking, zero external network dependencies.
   - Live Application: https://nikhilsahani.com/Mountain/
   - Source Repository: https://github.com/h4r0015k/Mountain
+- **Memory**: Custom heap memory allocator implemented in pure ANSI C providing malloc, free, realloc, and calloc. Built to understand memory alignment, heap fragmentation, and chunk headers from scratch; verified against real Linux binaries via dynamic linker interposition (LD_PRELOAD).
+  - Source Repository: https://github.com/h4r0015k/Memory
 - **IRCBot-C**: Minimalist IRC client written from scratch in ANSI C using raw POSIX/BSD sockets. Handles direct TCP streams, non-blocking I/O polling, and RFC 1459 protocol PING/PONG keep-alive loops without third-party libraries.
   - Source Repository: https://github.com/h4r0015k/IRCBot-C
 - **WhatBot**: Early automated WhatsApp cryptocurrency micro-tipping bot (2015). Interfaced with the WhatsApp protocol via Yowsup, managing transaction state in MySQL and programmatic disbursements with Block.io APIs.
