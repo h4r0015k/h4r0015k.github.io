@@ -1,0 +1,125 @@
+---
+---
+<div class="role-badge" id="role-badge">
+  <span class="badge-prefix">// </span><span class="badge-text" id="role-text">SENIOR PRODUCT ENGINEER</span>
+</div>
+
+<script>
+  class TextScramble {
+    el: HTMLElement;
+    currentText: string;
+    chars: string;
+    queue: Array<{ from: string; to: string; start: number; end: number; char: string }>;
+    frame: number;
+    frameRequest?: number;
+    resolve!: () => void;
+
+    constructor(el: HTMLElement) {
+      this.el = el;
+      this.currentText = el.innerText.trim();
+      this.chars = '!<>-_\\/[]{}—=+*^?#_01';
+      this.queue = [];
+      this.frame = 0;
+      this.update = this.update.bind(this);
+    }
+    setText(newText: string) {
+      const oldText = this.currentText;
+      this.currentText = newText;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise<void>((resolve) => this.resolve = resolve);
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 8);
+        const end = start + Math.floor(Math.random() * 8) + 6;
+        this.queue.push({ from, to, start, end, char: '' });
+      }
+      if (this.frameRequest) cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+    update() {
+      let output = '';
+      let complete = 0;
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = this.chars[Math.floor(Math.random() * this.chars.length)];
+            this.queue[i].char = char;
+          }
+          output += `<span class="d-char">${char}</span>`;
+        } else {
+          output += from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.el.textContent = this.currentText;
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    }
+  }
+
+  const roleEl = document.getElementById('role-text');
+  if (roleEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const phrases = [
+      'SENIOR PRODUCT ENGINEER',
+      'IT WAS PROBABLY DNS',
+      'ESCAPING VIM ON FIRST TRY',
+      'CHMOD 777 IS NOT A FIX',
+      'OFF BY ONE ERROR SURVIVOR',
+      'KILL -9 AS A LAST RESORT'
+    ];
+    const fx = new TextScramble(roleEl);
+    let phraseIdx = 0;
+    let roleTimer: any = null;
+    let isActive = true;
+
+    const cycleRole = () => {
+      if (!isActive) return;
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      fx.setText(phrases[phraseIdx]).then(() => {
+        roleTimer = setTimeout(cycleRole, 3200);
+      });
+    };
+
+    roleTimer = setTimeout(cycleRole, 4000);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        clearTimeout(roleTimer);
+        isActive = false;
+      } else {
+        isActive = true;
+        clearTimeout(roleTimer);
+        roleTimer = setTimeout(cycleRole, 1500);
+      }
+    });
+
+    const headerEl = document.querySelector('header');
+    if ('IntersectionObserver' in window && headerEl) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            clearTimeout(roleTimer);
+            isActive = false;
+          } else if (!isActive && !document.hidden) {
+            isActive = true;
+            clearTimeout(roleTimer);
+            roleTimer = setTimeout(cycleRole, 1500);
+          }
+        });
+      }, { threshold: 0.1 });
+      obs.observe(headerEl);
+    }
+  }
+</script>

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # XML Sitemap for search engines
-Sitemap: https://nikhilsahani.com/sitemap.xml
+Sitemap: https://nikhilsahani.com/sitemap-index.xml
 
 # Machine-readable summary for AI agents and LLMs
 # Spec: https://llmstxt.org

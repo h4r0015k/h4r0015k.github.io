@@ -1,0 +1,165 @@
+---
+---
+<section id="projects">
+  <div class="projects-header-row">
+    <div class="section-header">// PROJECTS</div>
+    <div class="projects-nav">
+      <button class="projects-nav-btn" id="proj-prev-btn" aria-label="Previous Project">[ ◀ ]</button>
+      <span class="projects-counter" id="projects-counter">01 / 04</span>
+      <button class="projects-nav-btn" id="proj-next-btn" aria-label="Next Project">[ ▶ ]</button>
+    </div>
+  </div>
+  <p class="section-intro">
+    A selection of production tools and systems experiments. Some built to solve user problems; others built to dissect protocols, memory layout, and runtime mechanics from scratch.
+  </p>
+
+  <div class="projects-carousel" id="projects-carousel">
+    <!-- Mountain -->
+    <div class="project-card" data-index="0">
+      <div class="card-head">
+        <span class="proj-title">Mountain</span>
+        <div class="proj-links">
+          <a href="https://nikhilsahani.com/Mountain/" target="_blank" rel="noopener noreferrer" class="proj-btn">[ LIVE APP ↗ ]</a>
+          <a href="https://github.com/h4r0015k/Mountain" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+        </div>
+      </div>
+      <p class="proj-desc">
+        Local-first, zero-knowledge browser password vault. AES-256-GCM encryption with BIP-39 mnemonic recovery via Web Crypto API. Stored in client-side IndexedDB with zero server dependencies.
+      </p>
+      <div class="tags">
+        <span class="tag">AES-256-GCM</span>
+        <span class="tag">WEB CRYPTO API</span>
+        <span class="tag">BIP-39</span>
+        <span class="tag">INDEXEDDB</span>
+        <span class="tag">LOCAL-FIRST</span>
+      </div>
+    </div>
+
+    <!-- Memory (C Heap Allocator) -->
+    <div class="project-card" data-index="1">
+      <div class="card-head">
+        <span class="proj-title">Memory</span>
+        <div class="proj-links">
+          <a href="https://github.com/h4r0015k/Memory" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+        </div>
+      </div>
+      <p class="proj-desc">
+        Custom heap allocator in ANSI C implementing <code>malloc</code>, <code>free</code>, <code>realloc</code>, and <code>calloc</code>. Tested against standard Linux binaries via dynamic linker interposition (<code>LD_PRELOAD</code>).
+      </p>
+      <div class="tags">
+        <span class="tag">ANSI C</span>
+        <span class="tag">VIRTUAL MEMORY</span>
+        <span class="tag">LD_PRELOAD</span>
+        <span class="tag">POSIX</span>
+        <span class="tag">SYSTEM INTERNALS</span>
+      </div>
+    </div>
+
+    <!-- IRCBot-C -->
+    <div class="project-card" data-index="2">
+      <div class="card-head">
+        <span class="proj-title">IRCBot-C</span>
+        <div class="proj-links">
+          <a href="https://github.com/h4r0015k/IRCBot-C" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+        </div>
+      </div>
+      <p class="proj-desc">
+        Minimal RFC 1459 IRC client in ANSI C over raw POSIX/BSD sockets. Handles direct TCP streams, packet framing, and ping/pong keep-alives at the syscall level without external libraries.
+      </p>
+      <div class="tags">
+        <span class="tag">ANSI C</span>
+        <span class="tag">BSD SOCKETS</span>
+        <span class="tag">RFC 1459</span>
+        <span class="tag">TCP STREAMS</span>
+      </div>
+    </div>
+
+    <!-- WhatBot -->
+    <div class="project-card" data-index="3">
+      <div class="card-head">
+        <span class="proj-title">WhatBot</span>
+        <div class="proj-links">
+          <a href="https://github.com/h4r0015k/WhatBot" target="_blank" rel="noopener noreferrer" class="proj-btn">[ SOURCE ↗ ]</a>
+        </div>
+      </div>
+      <p class="proj-desc">
+        Early WhatsApp cryptocurrency micro-tipping bot (2015). Built with Python, reverse-engineered WhatsApp protocol layers via Yowsup, MySQL ledger state, and Block.io APIs.
+      </p>
+      <div class="tags">
+        <span class="tag">PYTHON</span>
+        <span class="tag">YOWSUP</span>
+        <span class="tag">MYSQL</span>
+        <span class="tag">BLOCK.IO</span>
+        <span class="tag">REVERSE ENGINEERING</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initProjectCarousel() {
+    const carousel = document.getElementById('projects-carousel');
+    const prevBtn = document.getElementById('proj-prev-btn');
+    const nextBtn = document.getElementById('proj-next-btn');
+    const counter = document.getElementById('projects-counter');
+    if (!carousel) return;
+
+    const cards = carousel.querySelectorAll<HTMLElement>('.project-card');
+    if (!cards.length) return;
+
+    const updateCounter = (current: number, total: number) => {
+      if (counter) {
+        const pad = (n: number) => String(n).padStart(2, '0');
+        counter.textContent = `${pad(current)} / ${pad(total)}`;
+      }
+    };
+
+    const slide = (direction: number) => {
+      let currentIndex = 0;
+      let minDiff = Infinity;
+      cards.forEach((card, i) => {
+        const diff = Math.abs(card.offsetLeft - carousel.offsetLeft - carousel.scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          currentIndex = i;
+        }
+      });
+
+      let nextIndex = currentIndex + direction;
+      if (nextIndex < 0) nextIndex = cards.length - 1;
+      if (nextIndex >= cards.length) nextIndex = 0;
+
+      const targetCard = cards[nextIndex];
+      const targetLeft = targetCard.offsetLeft - carousel.offsetLeft;
+
+      carousel.scrollTo({
+        left: targetLeft,
+        behavior: 'smooth'
+      });
+      updateCounter(nextIndex + 1, cards.length);
+    };
+
+    prevBtn?.addEventListener('click', () => slide(-1));
+    nextBtn?.addEventListener('click', () => slide(1));
+
+    let scrollTimer: any = null;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        let activeIdx = 0;
+        let minDiff = Infinity;
+        cards.forEach((card, i) => {
+          const diff = Math.abs(card.offsetLeft - carousel.offsetLeft - carousel.scrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            activeIdx = i;
+          }
+        });
+        updateCounter(activeIdx + 1, cards.length);
+      }, 60);
+    }, { passive: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', initProjectCarousel);
+  initProjectCarousel();
+</script>

@@ -1,0 +1,105 @@
+---
+---
+<section id="comms">
+  <div class="section-header">// COMMS</div>
+  <div class="comms-panel">
+    <div class="comms-row">
+      <span class="comms-key">EMAIL</span>
+      <div class="comms-action">
+        <a href="mailto:hire@nikhilsahani.com?subject=Senior%20Engineering%20Opportunity%20-%20Nikhil%20Sahani" class="comms-val">hire@nikhilsahani.com</a>
+        <button class="copy-btn" data-copy="hire@nikhilsahani.com">[ COPY ]</button>
+      </div>
+    </div>
+
+    <div class="comms-row">
+      <span class="comms-key">PHONE</span>
+      <div class="comms-action">
+        <a href="tel:+918104408291" class="comms-val">+91 8104408291</a>
+        <button class="copy-btn" data-copy="+918104408291">[ COPY ]</button>
+      </div>
+    </div>
+
+    <div class="comms-row">
+      <span class="comms-key">GITHUB</span>
+      <div class="comms-action">
+        <a href="https://github.com/h4r0015k" target="_blank" rel="noopener noreferrer" class="comms-val">github.com/h4r0015k&nbsp;↗</a>
+      </div>
+    </div>
+
+    <div class="comms-row">
+      <span class="comms-key">LINKEDIN</span>
+      <div class="comms-action">
+        <a href="https://www.linkedin.com/in/nikhil-sahani/" target="_blank" rel="noopener noreferrer" class="comms-val">in/nikhil-sahani&nbsp;↗</a>
+      </div>
+    </div>
+
+    <div class="gpg-box">
+      <div class="gpg-row">
+        <div class="gpg-header">
+          <span class="gpg-label">GPG / SIGNING KEY:</span>
+          <button class="copy-btn" data-copy="45BFC8190216801D8F61B0FCA7AF91F7CF4F35FF">[ COPY KEY ]</button>
+        </div>
+        <code class="gpg-key">45BF C819 0216 801D 8F61 B0FC A7AF 91F7 CF4F 35FF</code>
+      </div>
+      <div class="gpg-cmd-row">
+        <div class="gpg-cmd-code">
+          <span class="gpg-prompt">$</span>
+          <span class="gpg-cmd">curl -s https://nikhilsahani.com/key.asc | gpg --import</span>
+        </div>
+        <button class="copy-btn" data-copy="curl -s https://nikhilsahani.com/key.asc | gpg --import">[ COPY CMD ]</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  function initCopy() {
+    const toast = document.getElementById('toast');
+    let toastTimer: any = null;
+
+    const showToast = (msg: string) => {
+      if (!toast) return;
+      toast.textContent = `▶ ${msg}`;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+    };
+
+    const copyBtns = document.querySelectorAll<HTMLButtonElement>('.copy-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-copy');
+        if (!text) return;
+
+        const done = () => {
+          showToast('COPIED TO CLIPBOARD');
+          const old = btn.textContent;
+          btn.textContent = '[ COPIED ]';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = old;
+            btn.classList.remove('copied');
+          }, 1500);
+        };
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done).catch(() => {
+            const t = document.createElement('textarea');
+            t.value = text;
+            t.style.position = 'fixed';
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+            done();
+          });
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initCopy);
+  initCopy();
+</script>

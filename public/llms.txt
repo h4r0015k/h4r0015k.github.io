@@ -1,9 +1,9 @@
 # Nikhil Sahani (`h4r0015k`)
 
-> Senior Product Engineer based in Thane / Mumbai, India. 7+ years of experience building backend systems, distributed services, and practical AI tooling.
+> Senior Product Engineer based in Thane / Mumbai, India. 7+ years of experience building distributed backends, system internals, and practical AI tooling.
 
 ## Executive Summary
-Nikhil Sahani is a Senior Product Engineer with 7+ years of experience building backend systems, distributed services, and practical AI tooling. He started tinkering with code and computers long before working in tech, curious about how software runs at a lower level. In production, his focus is on backend architecture: keeping systems fast, handling scale, maintaining transaction safety, and building clean, reliable software that runs quietly without drama.
+Nikhil Sahani is a Senior Product Engineer with 7+ years of experience building distributed backends, system internals, and practical AI tooling. He started tinkering with code and computers long before working in tech, curious about how software runs at a lower level. In production, his focus is on backend architecture: keeping systems fast, handling scale, maintaining transaction safety, and building clean, reliable software that runs quietly without drama.
 
 ## Contact & Online Identity
 - Primary Website: https://nikhilsahani.com
@@ -39,9 +39,10 @@ Nikhil Sahani is a Senior Product Engineer with 7+ years of experience building 
 - **WhatBot**: Early automated WhatsApp cryptocurrency micro-tipping bot (2015). Interfaced with the WhatsApp protocol via Yowsup, managing transaction state in MySQL and programmatic disbursements with Block.io APIs.
   - Source Repository: https://github.com/h4r0015k/WhatBot
 
-## Foundational Books & Influences
-- **The C Programming Language** (Brian W. Kernighan & Dennis M. Ritchie): Canonical systems programming text that established an appreciation for memory layout, pointer mechanics, and bare-metal discipline.
-- **C For Dummies** (Dan Gookin): The original starting point that demystified computers in youth and sparked a lifelong path in software engineering.
+## Technical Notes & Write-ups
+- **Resolving Prod Issues Automatically Using Claude Routines**: Real-world workflow connecting production 5xx errors from Pino and SolarWinds Papertrail to Claude routines for automated root cause analysis, draft GitHub pull requests, and threaded updates in Google Chat.
+  - URL: https://nikhilsahani.com/notes/resolving-prod-issues-automatically-using-claude-routines/
+  - Notes Archive: https://nikhilsahani.com/notes/
 
 ## Engineering Philosophy
 - Simple, "boring" architectures with well-understood failure modes beat complex distributed topologies.

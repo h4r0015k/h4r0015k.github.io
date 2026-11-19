@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { formatDisplayDate } from '../../utils/date';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map(note => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+
+const keywords = [
+  "Claude routines",
+  "Claude Code",
+  "automated pull requests",
+  "production error triage",
+  "5xx error automation",
+  "Pino logger",
+  "SolarWinds Papertrail",
+  "on-call incident automation",
+  "automated root cause analysis",
+  "Applied AI"
+];
+
+const canonicalUrl = `https://nikhilsahani.com/notes/${note.id}/`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": note.data.title,
+  "description": note.data.description,
+  "url": canonicalUrl,
+  "image": "https://nikhilsahani.com/og-image.png",
+  "datePublished": note.data.date,
+  "dateModified": note.data.date,
+  "author": {
+    "@type": "Person",
+    "name": "Nikhil Sahani",
+    "url": "https://nikhilsahani.com/#person"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Nikhil Sahani",
+    "url": "https://nikhilsahani.com/#person"
+  },
+  "inLanguage": "en-US",
+  "keywords": keywords
+};
+---
+
+<BaseLayout
+  title={`${note.data.title} - Nikhil Sahani`}
+  description={note.data.description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  jsonLd={jsonLd}
+  keywords={keywords}
+  navMode="article"
+>
+  <header>
+    <div class="article-meta">
+      <span class="meta-tag">{note.data.tag}</span>
+      <span class="meta-time"><time datetime={note.data.date}>{note.data.displayDate || formatDisplayDate(note.data.date)}</time> • {note.data.readTime}</span>
+    </div>
+    <h1>{note.data.title}</h1>
+  </header>
+
+  <article class="content">
+    <Content />
+  </article>
+
+  <footer>
+    <div>NIKHIL SAHANI // h4r0015k</div>
+    <div>STATIC HTML • ZERO TRACKERS</div>
+    <div><a href="/notes/">[← ALL NOTES]</a></div>
+  </footer>
+</BaseLayout>

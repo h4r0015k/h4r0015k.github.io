@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RoleBadge from '../components/RoleBadge.astro';
+import ProjectCarousel from '../components/ProjectCarousel.astro';
+import Comms from '../components/Comms.astro';
+import { getCollection } from 'astro:content';
+import { formatDisplayDate } from '../utils/date';
+
+const allNotes = await getCollection('notes');
+const sortedNotes = allNotes.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const latestNote = sortedNotes[0];
+---
+
+<BaseLayout>
+  <!-- Header -->
+  <header>
+    <RoleBadge />
+    <h1>NIKHIL SAHANI</h1>
+
+    <div class="tagline">
+      <span>Distributed Backends</span>
+      <span>•</span>
+      <span>System Internals</span>
+      <span>•</span>
+      <span>Applied AI</span>
+    </div>
+
+    <div class="meta-bar">
+      <span>Thane / Mumbai, India</span>
+      <span class="hud-meta">•</span>
+      <span>Available for Senior Engineering Roles</span>
+    </div>
+  </header>
+
+  <!-- Bio (Grounded, Simple, Senior Product Engineer) -->
+  <section id="about">
+    <div class="section-header">// ABOUT</div>
+    <div class="bio">
+      <p>
+        Hey, I'm Nikhil Sahani.
+      </p>
+
+      <p>
+        I'm a Senior Product Engineer with 7+ years of experience, mostly building backend systems. I like working on features from start to finish, but I care a lot about the backend side: keeping things fast, handling scale, and making sure services don't break.
+      </p>
+
+      <p>
+        I started playing with code and computers long before I worked in tech, mostly just curious about how things worked under the hood. That never really changed. I still like knowing how software works at a lower level instead of just treating it like a black box.
+      </p>
+
+      <p>
+        Lately, I also spend time with AI: adding models into backend pipelines and building small, useful tools that help solve day-to-day problems.
+      </p>
+
+      <p>
+        I prefer simple setups over complicated ones. The goal is always to write clean code, keep systems easy to maintain, and build things that run quietly without drama.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <ProjectCarousel />
+
+  <!-- Notes Preview Section (Driven by Content Collection) -->
+  {latestNote && (
+    <section id="notes">
+      <div class="projects-header-row">
+        <div class="section-header">// NOTES</div>
+        <a href="/notes/" class="proj-btn">[ ALL NOTES ↗ ]</a>
+      </div>
+      <p class="section-intro">
+        Occasional scratchpad notes on things I run into: odd bugs, setups that worked, and write-ups on tools.
+      </p>
+
+      <a href={`/notes/${latestNote.id}/`} class="note-preview-card">
+        <div class="note-preview-top">
+          <span class="tag">{latestNote.data.tag}</span>
+          <span class="text-dim"><time datetime={latestNote.data.date}>{latestNote.data.displayDate || formatDisplayDate(latestNote.data.date)}</time> • {latestNote.data.readTime}</span>
+        </div>
+        <div class="note-preview-title">{latestNote.data.title}</div>
+        <p class="note-preview-desc">
+          {latestNote.data.description}
+        </p>
+        <span class="note-preview-link">[ READ NOTE ↗ ]</span>
+      </a>
+    </section>
+  )}
+
+  <!-- Comms -->
+  <Comms />
+
+  <!-- Footer -->
+  <footer>
+    <div>NIKHIL SAHANI // h4r0015k</div>
+    <div>STATIC HTML • ZERO TRACKERS</div>
+    <div><a href="#">[▲ TOP]</a></div>
+  </footer>
+</BaseLayout>

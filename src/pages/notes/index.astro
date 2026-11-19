@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatDisplayDate } from '../../utils/date';
+
+const allNotes = await getCollection('notes');
+const sortedNotes = allNotes.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Notes - Nikhil Sahani",
+  "description": "A small collection of notes on random things I run into while building software by Nikhil Sahani.",
+  "url": "https://nikhilsahani.com/notes/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Nikhil Sahani",
+    "url": "https://nikhilsahani.com/#person"
+  }
+};
+---
+
+<BaseLayout
+  title="Notes - Nikhil Sahani"
+  description="A small collection of notes on random things I run into while building software: odd bugs, decisions that worked, and write-ups on tools."
+  canonicalUrl="https://nikhilsahani.com/notes/"
+  jsonLd={jsonLd}
+  navMode="notes"
+>
+  <header>
+    <div class="role-badge">// SCRATCHPAD &amp; NOTES</div>
+    <h1>NOTES</h1>
+    <p class="intro">
+      A small collection of notes on random things I run into while building software: odd bugs, decisions that worked, things that broke, and occasional write-ups on tools I'm playing with.
+    </p>
+  </header>
+
+  <main class="notes-list">
+    {sortedNotes.map(note => (
+      <a href={`/notes/${note.id}/`} class="note-card">
+        <div class="note-meta">
+          <span class="note-tag">{note.data.tag}</span>
+          <span class="note-time"><time datetime={note.data.date}>{note.data.displayDate || formatDisplayDate(note.data.date)}</time> • {note.data.readTime}</span>
+        </div>
+        <div class="note-title">{note.data.title}</div>
+        <p class="note-desc">{note.data.description}</p>
+        <span class="note-link-arrow">[ READ NOTE ↗ ]</span>
+      </a>
+    ))}
+  </main>
+
+  <footer>
+    <div>NIKHIL SAHANI // h4r0015k</div>
+    <div>STATIC HTML • ZERO TRACKERS</div>
+    <div><a href="/">[← PORTFOLIO]</a></div>
+  </footer>
+</BaseLayout>
