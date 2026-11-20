@@ -121,7 +121,7 @@ body::before {
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, var(--scanline-color) 50%);
   background-size: 100% 3px;
   pointer-events: none;
-  z-index: 999;
+  z-index: 0;
   opacity: var(--scanline-opacity);
 }
 
