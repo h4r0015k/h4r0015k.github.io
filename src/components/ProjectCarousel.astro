@@ -160,6 +160,9 @@
     }, { passive: true });
   }
 
-  document.addEventListener('DOMContentLoaded', initProjectCarousel);
-  initProjectCarousel();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProjectCarousel, { once: true });
+  } else {
+    initProjectCarousel();
+  }
 </script>
