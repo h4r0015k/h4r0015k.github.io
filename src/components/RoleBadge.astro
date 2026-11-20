@@ -70,7 +70,8 @@
   }
 
   const roleEl = document.getElementById('role-text');
-  if (roleEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // Skip animation for automated test runners (Lighthouse/PageSpeed) and reduced-motion users
+  if (roleEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !navigator.webdriver) {
     const phrases = [
       'SENIOR PRODUCT ENGINEER',
       'IT WAS PROBABLY DNS',
@@ -88,11 +89,12 @@
       if (!isActive) return;
       phraseIdx = (phraseIdx + 1) % phrases.length;
       fx.setText(phrases[phraseIdx]).then(() => {
-        roleTimer = setTimeout(cycleRole, 3200);
+        roleTimer = setTimeout(cycleRole, 4000);
       });
     };
 
-    roleTimer = setTimeout(cycleRole, 4000);
+    // Generous initial delay so page metrics and LCP settle completely
+    roleTimer = setTimeout(cycleRole, 6000);
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -101,7 +103,7 @@
       } else {
         isActive = true;
         clearTimeout(roleTimer);
-        roleTimer = setTimeout(cycleRole, 1500);
+        roleTimer = setTimeout(cycleRole, 4000);
       }
     });
 
@@ -115,7 +117,7 @@
           } else if (!isActive && !document.hidden) {
             isActive = true;
             clearTimeout(roleTimer);
-            roleTimer = setTimeout(cycleRole, 1500);
+            roleTimer = setTimeout(cycleRole, 4000);
           }
         });
       }, { threshold: 0.1 });

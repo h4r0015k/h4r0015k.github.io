@@ -122,7 +122,9 @@ const defaultJsonLd = {
         if (meta) meta.setAttribute('content', isLight ? '#f4f7f5' : '#070a08');
         const btn = document.getElementById('theme-toggle');
         if (btn) {
-          btn.textContent = isLight ? '[ 0xFF ]' : '[ 0x00 ]';
+          const iconText = isLight ? '[ 0xFF ]' : '[ 0x00 ]';
+          btn.textContent = iconText;
+          btn.setAttribute('aria-label', `Toggle theme: ${iconText}`);
           btn.title = isLight ? 'Byte 0xFF (White): switch to 0x00 (Dark)' : 'Byte 0x00 (Black): switch to 0xFF (Light)';
         }
       }
@@ -188,7 +190,7 @@ const defaultJsonLd = {
           </>
         )}
         <span>•</span>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">[ 0x00 ]</button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme: [ 0x00 ]" title="Toggle theme">[ 0x00 ]</button>
       </div>
     </div>
   </nav>
