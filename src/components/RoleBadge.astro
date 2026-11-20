@@ -90,21 +90,15 @@
     ];
     const fx = new TextScramble(roleEl);
     let phraseIdx = 0;
-    let roleTimer: any = null;
-    let isVisible = true;
 
     const cycleRole = () => {
-      if (!isVisible || fx.isScrambling) return;
+      if (fx.isScrambling) return;
       phraseIdx = (phraseIdx + 1) % phrases.length;
-      fx.setText(phrases[phraseIdx]).then(() => {
-        clearTimeout(roleTimer);
-        roleTimer = setTimeout(cycleRole, 5000);
-      });
+      fx.setText(phrases[phraseIdx]);
     };
 
     const handleTrigger = (e?: Event) => {
       if (e) e.preventDefault();
-      clearTimeout(roleTimer);
       cycleRole();
     };
 
@@ -117,47 +111,8 @@
 
     badgeEl.addEventListener('mouseenter', () => {
       if (!fx.isScrambling) {
-        clearTimeout(roleTimer);
         cycleRole();
       }
     });
-
-    // Auto-cycle ONLY after first genuine user interaction (scroll, click, touch, key).
-    // Headless test runners (PageSpeed Insights, Lighthouse) never trigger these,
-    // ensuring static DOM during initial audits (0ms TBT, instant LCP settling, 0 forced reflows).
-    const interactionEvents = ['scroll', 'pointerdown', 'touchstart', 'keydown'] as const;
-    const onUserInteraction = () => {
-      interactionEvents.forEach((evt) => window.removeEventListener(evt, onUserInteraction));
-      clearTimeout(roleTimer);
-      roleTimer = setTimeout(cycleRole, 3500);
-    };
-
-    interactionEvents.forEach((evt) => {
-      window.addEventListener(evt, onUserInteraction, { once: true, passive: true });
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        clearTimeout(roleTimer);
-        isVisible = false;
-      } else {
-        isVisible = true;
-      }
-    });
-
-    const headerEl = document.querySelector('header');
-    if ('IntersectionObserver' in window && headerEl) {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            clearTimeout(roleTimer);
-            isVisible = false;
-          } else {
-            isVisible = true;
-          }
-        });
-      }, { threshold: 0.1 });
-      obs.observe(headerEl);
-    }
   }
 </script>
